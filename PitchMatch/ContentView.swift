@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "music.note")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Musik!")
+            Text("PitchMatch!")
         }
         .padding()
     }
