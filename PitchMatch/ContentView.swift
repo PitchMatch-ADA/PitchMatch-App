@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let model: LyricClassifierModel? = try? LyricClassifierModel(configuration: .init())
+    
     var body: some View {
         VStack {
             Image(systemName: "music.note")
