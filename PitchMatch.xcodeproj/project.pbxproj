@@ -23,6 +23,8 @@
 		C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */; };
 		C7ABA6932BDB42E400AFC4E0 /* Singer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6922BDB42E400AFC4E0 /* Singer.swift */; };
 		C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */; };
+		C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6972BDB7A8000AFC4E0 /* History.swift */; };
+		C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LyricClassifierModel.mlmodel; sourceTree = "<group>"; };
 		C7ABA6922BDB42E400AFC4E0 /* Singer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singer.swift; sourceTree = "<group>"; };
 		C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C7ABA6972BDB7A8000AFC4E0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 		C7ABA68E2BDB42B800AFC4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7ABA6992BDB7D6F00AFC4E0 /* History */,
 				C7ABA6912BDB42D400AFC4E0 /* Singer */,
 			);
 			path = Model;
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				C7ABA6922BDB42E400AFC4E0 /* Singer.swift */,
+				C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */,
 			);
 			path = Singer;
 			sourceTree = "<group>";
@@ -159,6 +165,14 @@
 				C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C7ABA6992BDB7D6F00AFC4E0 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C7ABA6972BDB7A8000AFC4E0 /* History.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */,
+				C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */,
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
 				C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
 				C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct PitchMatchApp: App {
@@ -13,5 +14,6 @@ struct PitchMatchApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [History.self])
     }
 }
