@@ -15,7 +15,7 @@ struct HistoryListView: View {
         NavigationStack{
             ScrollView{
                 LazyVGrid(columns: adaptiveColumn, spacing: 10) {
-                    ForEach(0..<10){ value in
+                    ForEach(0..<3){ value in
                         NavigationLink(destination:HomeView()){
                             VStack{
                                 Image("RAN")
@@ -46,7 +46,7 @@ struct HistoryListView: View {
                         LinearGradient(gradient: Gradient(colors: [Color.yellowTint2, Color.yellowShade2]), startPoint: .top, endPoint: .bottom)
                             .edgesIgnoringSafeArea(.all)
                     )
-            .frame(maxWidth: .infinity)
+           
             
            
         }
