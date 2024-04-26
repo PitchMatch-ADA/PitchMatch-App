@@ -21,6 +21,8 @@
 		C7ABA68A2BDB40DF00AFC4E0 /* RanSiLemah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6812BDB40DF00AFC4E0 /* RanSiLemah.mp3 */; };
 		C7ABA68B2BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6822BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 */; };
 		C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */; };
+		C7ABA6932BDB42E400AFC4E0 /* Singer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6922BDB42E400AFC4E0 /* Singer.swift */; };
+		C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		C7ABA6812BDB40DF00AFC4E0 /* RanSiLemah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanSiLemah.mp3; sourceTree = "<group>"; };
 		C7ABA6822BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TulusHatiHatiDiJalan.mp3; sourceTree = "<group>"; };
 		C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LyricClassifierModel.mlmodel; sourceTree = "<group>"; };
+		C7ABA6922BDB42E400AFC4E0 /* Singer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singer.swift; sourceTree = "<group>"; };
+		C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				C7ABA64A2BDA53C900AFC4E0 /* Resources */,
+				C7ABA68E2BDB42B800AFC4E0 /* Model */,
+				C7ABA6902BDB42C200AFC4E0 /* View */,
 				C710544D2BD7C7E600654867 /* PitchMatchApp.swift */,
 				C710544F2BD7C7E600654867 /* ContentView.swift */,
 				C71054512BD7C7E700654867 /* Assets.xcassets */,
@@ -121,6 +127,38 @@
 				C7ABA67F2BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 */,
 			);
 			path = Song;
+			sourceTree = "<group>";
+		};
+		C7ABA68E2BDB42B800AFC4E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7ABA6912BDB42D400AFC4E0 /* Singer */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7ABA6902BDB42C200AFC4E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7ABA6942BDB42E900AFC4E0 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7ABA6912BDB42D400AFC4E0 /* Singer */ = {
+			isa = PBXGroup;
+			children = (
+				C7ABA6922BDB42E400AFC4E0 /* Singer.swift */,
+			);
+			path = Singer;
+			sourceTree = "<group>";
+		};
+		C7ABA6942BDB42E900AFC4E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +243,8 @@
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
 				C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
 				C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */,
+				C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */,
+				C7ABA6932BDB42E400AFC4E0 /* Singer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
