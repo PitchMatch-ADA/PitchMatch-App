@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE2492BDB875800B082BF /* HistoryListView.swift */; };
 		C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544D2BD7C7E600654867 /* PitchMatchApp.swift */; };
 		C71054502BD7C7E600654867 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544F2BD7C7E600654867 /* ContentView.swift */; };
 		C71054522BD7C7E700654867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054512BD7C7E700654867 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		819EE2492BDB875800B082BF /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		C710544A2BD7C7E600654867 /* PitchMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C710544D2BD7C7E600654867 /* PitchMatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchMatchApp.swift; sourceTree = "<group>"; };
 		C710544F2BD7C7E600654867 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		C7ABA6902BDB42C200AFC4E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				819EE2492BDB875800B082BF /* HistoryListView.swift */,
 				C7ABA6942BDB42E900AFC4E0 /* Home */,
 			);
 			path = View;
@@ -243,6 +246,7 @@
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
 				C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
 				C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */,
+				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
 				C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */,
 				C7ABA6932BDB42E400AFC4E0 /* Singer.swift in Sources */,
 			);
@@ -374,7 +378,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = 5SU889K9XY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -412,7 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = 5SU889K9XY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
