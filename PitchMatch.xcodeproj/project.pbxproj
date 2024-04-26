@@ -11,16 +11,16 @@
 		C71054502BD7C7E600654867 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544F2BD7C7E600654867 /* ContentView.swift */; };
 		C71054522BD7C7E700654867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054512BD7C7E700654867 /* Assets.xcassets */; };
 		C71054562BD7C7E700654867 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054552BD7C7E700654867 /* Preview Assets.xcassets */; };
-		C7ABA6502BDA55B000AFC4E0 /* LyricClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA64F2BDA55B000AFC4E0 /* LyricClassifierModel.mlmodel */; };
-		C7ABA65B2BDA810800AFC4E0 /* TulusTemanHidup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6522BDA810800AFC4E0 /* TulusTemanHidup.mp3 */; };
-		C7ABA65C2BDA810800AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6532BDA810800AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 */; };
-		C7ABA65D2BDA810800AFC4E0 /* RanDekatDiHati.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6542BDA810800AFC4E0 /* RanDekatDiHati.mp3 */; };
-		C7ABA65E2BDA810800AFC4E0 /* APSudah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6552BDA810800AFC4E0 /* APSudah.mp3 */; };
-		C7ABA65F2BDA810800AFC4E0 /* APTemanPerjalanan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6562BDA810800AFC4E0 /* APTemanPerjalanan.mp3 */; };
-		C7ABA6602BDA810800AFC4E0 /* RanSiLemah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6572BDA810800AFC4E0 /* RanSiLemah.mp3 */; };
-		C7ABA6612BDA810800AFC4E0 /* TulusHatiHatidiJalan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6582BDA810800AFC4E0 /* TulusHatiHatidiJalan.mp3 */; };
-		C7ABA6622BDA810800AFC4E0 /* APDiSenayan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6592BDA810800AFC4E0 /* APDiSenayan.mp3 */; };
-		C7ABA6632BDA810800AFC4E0 /* Tulus1000Tahun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA65A2BDA810800AFC4E0 /* Tulus1000Tahun.mp3 */; };
+		C7ABA6832BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67A2BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 */; };
+		C7ABA6842BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67B2BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 */; };
+		C7ABA6852BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67C2BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 */; };
+		C7ABA6862BDB40DF00AFC4E0 /* APSudah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67D2BDB40DF00AFC4E0 /* APSudah.mp3 */; };
+		C7ABA6872BDB40DF00AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67E2BDB40DF00AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 */; };
+		C7ABA6882BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67F2BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 */; };
+		C7ABA6892BDB40DF00AFC4E0 /* APDiSenayan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6802BDB40DF00AFC4E0 /* APDiSenayan.mp3 */; };
+		C7ABA68A2BDB40DF00AFC4E0 /* RanSiLemah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6812BDB40DF00AFC4E0 /* RanSiLemah.mp3 */; };
+		C7ABA68B2BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA6822BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 */; };
+		C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,16 +30,16 @@
 		C71054512BD7C7E700654867 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C71054532BD7C7E700654867 /* PitchMatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitchMatch.entitlements; sourceTree = "<group>"; };
 		C71054552BD7C7E700654867 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C7ABA64F2BDA55B000AFC4E0 /* LyricClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = LyricClassifierModel.mlmodel; path = ../../../../../Documents/LyricClassifierModel.mlmodel; sourceTree = "<group>"; };
-		C7ABA6522BDA810800AFC4E0 /* TulusTemanHidup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = TulusTemanHidup.mp3; path = "../../../../../Downloads/PM Songs/TulusTemanHidup.mp3"; sourceTree = "<group>"; };
-		C7ABA6532BDA810800AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = RanAkanKulakukanSemuaUntukmu.mp3; path = "../../../../../Downloads/PM Songs/RanAkanKulakukanSemuaUntukmu.mp3"; sourceTree = "<group>"; };
-		C7ABA6542BDA810800AFC4E0 /* RanDekatDiHati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = RanDekatDiHati.mp3; path = "../../../../../Downloads/PM Songs/RanDekatDiHati.mp3"; sourceTree = "<group>"; };
-		C7ABA6552BDA810800AFC4E0 /* APSudah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = APSudah.mp3; path = "../../../../../Downloads/PM Songs/APSudah.mp3"; sourceTree = "<group>"; };
-		C7ABA6562BDA810800AFC4E0 /* APTemanPerjalanan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = APTemanPerjalanan.mp3; path = "../../../../../Downloads/PM Songs/APTemanPerjalanan.mp3"; sourceTree = "<group>"; };
-		C7ABA6572BDA810800AFC4E0 /* RanSiLemah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = RanSiLemah.mp3; path = "../../../../../Downloads/PM Songs/RanSiLemah.mp3"; sourceTree = "<group>"; };
-		C7ABA6582BDA810800AFC4E0 /* TulusHatiHatidiJalan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = TulusHatiHatidiJalan.mp3; path = "../../../../../Downloads/PM Songs/TulusHatiHatidiJalan.mp3"; sourceTree = "<group>"; };
-		C7ABA6592BDA810800AFC4E0 /* APDiSenayan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = APDiSenayan.mp3; path = "../../../../../Downloads/PM Songs/APDiSenayan.mp3"; sourceTree = "<group>"; };
-		C7ABA65A2BDA810800AFC4E0 /* Tulus1000Tahun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Tulus1000Tahun.mp3; path = "../../../../../Downloads/PM Songs/Tulus1000Tahun.mp3"; sourceTree = "<group>"; };
+		C7ABA67A2BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanDekatDiHati.mp3; sourceTree = "<group>"; };
+		C7ABA67B2BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APTemanPerjalanan.mp3; sourceTree = "<group>"; };
+		C7ABA67C2BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tulus1000Tahun.mp3; sourceTree = "<group>"; };
+		C7ABA67D2BDB40DF00AFC4E0 /* APSudah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APSudah.mp3; sourceTree = "<group>"; };
+		C7ABA67E2BDB40DF00AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanAkanKulakukanSemuaUntukmu.mp3; sourceTree = "<group>"; };
+		C7ABA67F2BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TulusTemanHidup.mp3; sourceTree = "<group>"; };
+		C7ABA6802BDB40DF00AFC4E0 /* APDiSenayan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APDiSenayan.mp3; sourceTree = "<group>"; };
+		C7ABA6812BDB40DF00AFC4E0 /* RanSiLemah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanSiLemah.mp3; sourceTree = "<group>"; };
+		C7ABA6822BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TulusHatiHatiDiJalan.mp3; sourceTree = "<group>"; };
+		C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LyricClassifierModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		C7ABA64A2BDA53C900AFC4E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C7ABA6512BDA7F1200AFC4E0 /* Song */,
+				C7ABA6792BDB3E2900AFC4E0 /* Song */,
 				C7ABA64D2BDA556000AFC4E0 /* Model */,
 			);
 			path = Resources;
@@ -102,23 +102,23 @@
 		C7ABA64D2BDA556000AFC4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C7ABA64F2BDA55B000AFC4E0 /* LyricClassifierModel.mlmodel */,
+				C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C7ABA6512BDA7F1200AFC4E0 /* Song */ = {
+		C7ABA6792BDB3E2900AFC4E0 /* Song */ = {
 			isa = PBXGroup;
 			children = (
-				C7ABA6592BDA810800AFC4E0 /* APDiSenayan.mp3 */,
-				C7ABA6552BDA810800AFC4E0 /* APSudah.mp3 */,
-				C7ABA6562BDA810800AFC4E0 /* APTemanPerjalanan.mp3 */,
-				C7ABA6532BDA810800AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 */,
-				C7ABA6542BDA810800AFC4E0 /* RanDekatDiHati.mp3 */,
-				C7ABA6572BDA810800AFC4E0 /* RanSiLemah.mp3 */,
-				C7ABA65A2BDA810800AFC4E0 /* Tulus1000Tahun.mp3 */,
-				C7ABA6582BDA810800AFC4E0 /* TulusHatiHatidiJalan.mp3 */,
-				C7ABA6522BDA810800AFC4E0 /* TulusTemanHidup.mp3 */,
+				C7ABA6802BDB40DF00AFC4E0 /* APDiSenayan.mp3 */,
+				C7ABA67D2BDB40DF00AFC4E0 /* APSudah.mp3 */,
+				C7ABA67B2BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 */,
+				C7ABA67E2BDB40DF00AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 */,
+				C7ABA67A2BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 */,
+				C7ABA6812BDB40DF00AFC4E0 /* RanSiLemah.mp3 */,
+				C7ABA67C2BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 */,
+				C7ABA6822BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 */,
+				C7ABA67F2BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 */,
 			);
 			path = Song;
 			sourceTree = "<group>";
@@ -181,17 +181,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7ABA6602BDA810800AFC4E0 /* RanSiLemah.mp3 in Resources */,
-				C7ABA6632BDA810800AFC4E0 /* Tulus1000Tahun.mp3 in Resources */,
-				C7ABA65D2BDA810800AFC4E0 /* RanDekatDiHati.mp3 in Resources */,
-				C7ABA65E2BDA810800AFC4E0 /* APSudah.mp3 in Resources */,
 				C71054562BD7C7E700654867 /* Preview Assets.xcassets in Resources */,
-				C7ABA6622BDA810800AFC4E0 /* APDiSenayan.mp3 in Resources */,
-				C7ABA65B2BDA810800AFC4E0 /* TulusTemanHidup.mp3 in Resources */,
-				C7ABA65F2BDA810800AFC4E0 /* APTemanPerjalanan.mp3 in Resources */,
-				C7ABA65C2BDA810800AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 in Resources */,
-				C7ABA6612BDA810800AFC4E0 /* TulusHatiHatidiJalan.mp3 in Resources */,
+				C7ABA6872BDB40DF00AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 in Resources */,
+				C7ABA6862BDB40DF00AFC4E0 /* APSudah.mp3 in Resources */,
+				C7ABA68B2BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 in Resources */,
+				C7ABA6892BDB40DF00AFC4E0 /* APDiSenayan.mp3 in Resources */,
+				C7ABA6842BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 in Resources */,
 				C71054522BD7C7E700654867 /* Assets.xcassets in Resources */,
+				C7ABA6882BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 in Resources */,
+				C7ABA6852BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 in Resources */,
+				C7ABA68A2BDB40DF00AFC4E0 /* RanSiLemah.mp3 in Resources */,
+				C7ABA6832BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
-				C7ABA6502BDA55B000AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
+				C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
 				C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
