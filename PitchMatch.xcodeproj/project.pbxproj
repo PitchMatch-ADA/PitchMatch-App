@@ -27,6 +27,8 @@
 		C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */; };
 		C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA6972BDB7A8000AFC4E0 /* History.swift */; };
 		C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */; };
+		C7D525062BDC0A11002CAB8C /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525052BDC0A11002CAB8C /* RecordView.swift */; };
+		C7D525092BDC0A21002CAB8C /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525082BDC0A21002CAB8C /* HistoryDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		C7ABA6952BDB42FD00AFC4E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C7ABA6972BDB7A8000AFC4E0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerExtension.swift; sourceTree = "<group>"; };
+		C7D525052BDC0A11002CAB8C /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		C7D525082BDC0A21002CAB8C /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 		C7ABA6902BDB42C200AFC4E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7D525072BDC0A18002CAB8C /* HistoryDetail */,
+				C7D525042BDC0A08002CAB8C /* Record */,
 				819EE24B2BDBA63600B082BF /* Components */,
 				C7ABA6942BDB42E900AFC4E0 /* Home */,
 			);
@@ -187,6 +193,22 @@
 				C7ABA6972BDB7A8000AFC4E0 /* History.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		C7D525042BDC0A08002CAB8C /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				C7D525052BDC0A11002CAB8C /* RecordView.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		C7D525072BDC0A18002CAB8C /* HistoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C7D525082BDC0A21002CAB8C /* HistoryDetailView.swift */,
+			);
+			path = HistoryDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +293,8 @@
 				C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */,
 				C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */,
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
+				C7D525062BDC0A11002CAB8C /* RecordView.swift in Sources */,
+				C7D525092BDC0A21002CAB8C /* HistoryDetailView.swift in Sources */,
 				C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
 				C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */,
 				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
