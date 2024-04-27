@@ -25,9 +25,14 @@ struct RecordView: View {
             
             Spacer()
             
-            HStack {
-                Spacer()
-            }
+            RecorderDisplay(
+                backgroundRatios: clip?.powerRatios.map { ratio in
+                    Double(truncating: ratio as NSNumber)
+                } ?? [],
+                powerRatios: [],
+                color: singer?.getPrimaryColor() ?? .yellowMain
+            )
+            .frame(height: 300)
             
             Spacer()
             

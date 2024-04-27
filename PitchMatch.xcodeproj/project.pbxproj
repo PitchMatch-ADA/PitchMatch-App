@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE2492BDB875800B082BF /* HistoryListView.swift */; };
 		819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */; };
+		C706B9982BDCA8D300133BE8 /* RecorderDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */; };
 		C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544D2BD7C7E600654867 /* PitchMatchApp.swift */; };
 		C71054502BD7C7E600654867 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544F2BD7C7E600654867 /* ContentView.swift */; };
 		C71054522BD7C7E700654867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054512BD7C7E700654867 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		819EE2492BDB875800B082BF /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderDisplay.swift; sourceTree = "<group>"; };
 		C710544A2BD7C7E600654867 /* PitchMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C710544D2BD7C7E600654867 /* PitchMatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchMatchApp.swift; sourceTree = "<group>"; };
 		C710544F2BD7C7E600654867 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */,
 				819EE2492BDB875800B082BF /* HistoryListView.swift */,
 				C7D5250A2BDC1255002CAB8C /* CircleButton.swift */,
+				C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -179,9 +182,9 @@
 		C7ABA6902BDB42C200AFC4E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				819EE24B2BDBA63600B082BF /* Components */,
 				C7D525072BDC0A18002CAB8C /* HistoryDetail */,
 				C7D525042BDC0A08002CAB8C /* Record */,
-				819EE24B2BDBA63600B082BF /* Components */,
 				C7ABA6942BDB42E900AFC4E0 /* Home */,
 			);
 			path = View;
@@ -342,6 +345,7 @@
 				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
 				819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */,
 				C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */,
+				C706B9982BDCA8D300133BE8 /* RecorderDisplay.swift in Sources */,
 				C7ABA6932BDB42E400AFC4E0 /* Singer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

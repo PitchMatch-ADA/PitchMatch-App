@@ -9,11 +9,11 @@ import Foundation
 
 class Song: Identifiable {
     let id: String
-    let powerRatios: [CGFloat]
-    let frequencies: [CGFloat]
+    let powerRatios: [Float]
+    let frequencies: [Float]
     let second: Int
     
-    init(id: String, powerRatios: [CGFloat], frequencies: [CGFloat], second: Int) {
+    init(id: String, powerRatios: [Float], frequencies: [Float], second: Int) {
         self.id = id
         self.powerRatios = powerRatios
         self.frequencies = frequencies
