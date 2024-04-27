@@ -10,6 +10,8 @@ import SwiftUI
 struct CircleButton: View {
     let iconName: String
     let onClick: () -> Void
+    var logoColor: Color?
+    var backgroundColor: Color? //TODO: sumpah aneh banget ini gabisa muncul param nya pas declare
     
     var iconSize: Font = .largeTitle
     var circleSize: CGFloat = 96
@@ -21,13 +23,13 @@ struct CircleButton: View {
             ZStack {
                 Image(systemName: iconName)
                     .font(iconSize)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(logoColor ?? Color.yellowMain)
             }
             .frame(
                 width: circleSize,
                 height: circleSize
             )
-            .background(.bg)
+            .background(backgroundColor ?? Color.bg)
             .clipShape(Circle())
         }
         .buttonStyle(.plain)
