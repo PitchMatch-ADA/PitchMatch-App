@@ -38,16 +38,18 @@ struct HomeView: View {
                         }
                         
                         VStack {
-                            NavigationLink {
-                                Text(singer.id)
-                            } label: {
-                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
-                            }
+//                            NavigationLink {
+//                                Text(singer.id)
+//                            } label: {
+//                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
+//                            }
+                            CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
                             .buttonStyle(.plain)
                             
-                            .padding(.top,-20)
+                            .padding(.top,30)
                         }
                     }
+                    
                 }
                 .frame(
                     height: imageHeight + 64
@@ -57,25 +59,30 @@ struct HomeView: View {
                 .onChange(of: selectedIndex) { index in
                     currentSinger = singers.isEmpty ? nil : singers[index]
                 }
-                
-                
-                
+                Spacer()
                 HStack{
+                    
                     Spacer()
-                    CircleButton(iconName: "clock.arrow.circlepath") {
-                       
+                    NavigationLink{
+                        Text(currentSinger?.id ?? "ran")
+                    }label: {
+                        CircleNav(iconName: "clock.arrow.circlepath", circleSize: 70, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 30)
                     }
+                  
                     Spacer()
-                    CircleButton(iconName: "play.fill") {
-                       
+                    NavigationLink{
+                        Text(currentSinger?.id ?? "ran")
+                    }label: {
+                        CircleNav(iconName: "play.fill", circleSize: 100, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 50)
                     }
-                    .padding(.trailing,100)
+                    .padding(.trailing,65)
 
                     Spacer()
                     Spacer()
                     
                 }
-               
+
+                Spacer()
                 Spacer()
                 Spacer()
             }
