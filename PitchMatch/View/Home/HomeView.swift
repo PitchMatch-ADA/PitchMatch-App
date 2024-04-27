@@ -45,7 +45,7 @@ struct HomeView: View {
                             }
                             .buttonStyle(.plain)
                             
-                            .padding(.top,-120)
+                            .padding(.top,-20)
                         }
                     }
                 }
@@ -61,7 +61,18 @@ struct HomeView: View {
                 
                 
                 HStack{
-
+                    Spacer()
+                   
+                    ZStack{
+                        Circle()
+                                    .frame(width: 70, height: 90)
+                                    .foregroundColor(.white)
+                                Image(systemName: "clock.arrow.circlepath")
+                            .font(.system(size: 35))
+                            .foregroundColor(currentSinger?.getShadeColor())
+                    }
+                    Spacer()
+                    
                     ZStack{
                         Circle()
                                     .frame(width: 90, height: 90)
@@ -70,22 +81,31 @@ struct HomeView: View {
                             .font(.system(size: 50))
                             .foregroundColor(currentSinger?.getShadeColor())
                     }
+                    .padding(.trailing,70)
                     
-                    
+                   
+                    Spacer()
+                    Spacer()
                     
                 }
+               
+                Spacer()
                 Spacer()
             }
         }
         .background(
-            LinearGradient(
-                colors: [
-                    currentSinger?.getTintColor() ?? .yellowTint4,
-                    currentSinger?.getShadeColor() ?? .yellowShade4
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
+            LinearGradient(gradient: Gradient(colors: [currentSinger?.getShadeColor() ?? .yellowTint4,
+                currentSinger?.getTintColor() ?? .yellowShade4,
+                currentSinger?.getShadeColor() ?? .yellowShade4]),
+                startPoint: .top, endPoint: .bottom)
+//            LinearGradient(
+//                colors: [
+//                    currentSinger?.getTintColor() ?? .yellowTint4,
+//                    currentSinger?.getShadeColor() ?? .yellowShade4
+//                ],
+//                startPoint: .top,
+//                endPoint: .bottom
+//            )
         )
         .onAppear {
             singers = Singer.getSingers()
