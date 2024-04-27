@@ -41,7 +41,7 @@ struct HomeView: View {
                             NavigationLink {
                                 Text(singer.id)
                             } label: {
-                                Image(singer.imageName)
+                                Image("RAN")
                                     .clipped()
                                     .scaledToFit()
                                     .frame(width: imageWidth ,height: imageHeight)

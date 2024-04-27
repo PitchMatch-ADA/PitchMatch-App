@@ -12,13 +12,14 @@ struct CircularProgressBar: View {
        var total:Double =  100
        let circleHeight:CGFloat = 217
        @State var xPos:CGFloat = 0.0
+        let singer: Singer
            
        @State var yPos:CGFloat = 0.0
        var body: some View {
-           let pinHeight = circleHeight * 0.1
+          // let pinHeight = circleHeight * 0.1
            
            VStack {
-               Image("Tulus")
+               Image(singer.imageName)
                  .resizable()
                  .frame(width: 210, height: 210)
                  .cornerRadius(110)
@@ -56,5 +57,5 @@ struct CircularProgressBar: View {
 }
 
 #Preview {
-    CircularProgressBar()
+    CircularProgressBar(singer: .init(id: "1", imageName: "RAN", clips: ["Resources/Song/RanSiLemah"]))
 }
