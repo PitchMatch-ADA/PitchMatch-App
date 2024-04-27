@@ -63,5 +63,6 @@ struct CircularProgressBar: View {
 }
 
 #Preview {
-    CircularProgressBar(progress: 0.1, singer: .init(id: "1", imageName: "RAN", clips: ["Resources/Song/RanSiLemah"]))
+    CircularProgressBar(progress: 0.1, singer: .init(id: "1", imageName: "RAN", clips: [Song.getAP()[0]])
+    )
 }
