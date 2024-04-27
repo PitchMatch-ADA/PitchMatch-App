@@ -58,6 +58,6 @@ struct RecordView: View {
 
 #Preview {
     RecordView(
-        singer: Singer.getSingers()[0]
+        singer: Singer.getSingers()[2]
     )
 }

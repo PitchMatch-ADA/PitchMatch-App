@@ -27,7 +27,7 @@ class Singer: Identifiable {
             ),
             Singer(
                 id: "Ran",
-                imageName: "Ran",
+                imageName: "RAN",
                 clips: Song.getRan()
             ),
             Singer(

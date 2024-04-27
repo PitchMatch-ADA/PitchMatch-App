@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0DAD862BDCE81400E4B26A /* HistoryDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DAD852BDCE81400E4B26A /* HistoryDetailCard.swift */; };
 		819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE2492BDB875800B082BF /* HistoryListView.swift */; };
 		819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */; };
 		C706B9982BDCA8D300133BE8 /* RecorderDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0DAD852BDCE81400E4B26A /* HistoryDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailCard.swift; sourceTree = "<group>"; };
 		819EE2492BDB875800B082BF /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderDisplay.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				819EE2492BDB875800B082BF /* HistoryListView.swift */,
 				C7D5250A2BDC1255002CAB8C /* CircleButton.swift */,
 				C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */,
+				0D0DAD852BDCE81400E4B26A /* HistoryDetailCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				C7D525102BDC18C5002CAB8C /* VoiceToTextParser.swift in Sources */,
 				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
 				819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */,
+				0D0DAD862BDCE81400E4B26A /* HistoryDetailCard.swift in Sources */,
 				C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */,
 				C706B9982BDCA8D300133BE8 /* RecorderDisplay.swift in Sources */,
 				C7ABA6932BDB42E400AFC4E0 /* Singer.swift in Sources */,
