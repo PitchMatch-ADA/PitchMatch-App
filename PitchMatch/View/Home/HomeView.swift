@@ -38,16 +38,18 @@ struct HomeView: View {
                         }
                         
                         VStack {
-                            NavigationLink {
-                                RecordView(singer: singer)
-                            } label: {
-                                CircularProgressBar(progress: 70, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
-                            }
+//                            NavigationLink {
+//                                Text(singer.id)
+//                            } label: {
+//                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
+//                            }
+                            CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
                             .buttonStyle(.plain)
                             
-                            .padding(.top,-20)
+                            .padding(.top,30)
                         }
                     }
+                    
                 }
                 .frame(
                     height: imageHeight + 64
@@ -57,38 +59,30 @@ struct HomeView: View {
                 .onChange(of: selectedIndex) { index in
                     currentSinger = singers.isEmpty ? nil : singers[index]
                 }
-                
-                
-                
+                Spacer()
                 HStack{
-                    Spacer()
-                   
-                    ZStack{
-                        Circle()
-                                    .frame(width: 70, height: 90)
-                                    .foregroundColor(.white)
-                                Image(systemName: "clock.arrow.circlepath")
-                            .font(.system(size: 35))
-                            .foregroundColor(currentSinger?.getShadeColor())
-                    }
-                    Spacer()
                     
-                    ZStack{
-                        Circle()
-                                    .frame(width: 90, height: 90)
-                                    .foregroundColor(.white)
-                                Image(systemName: "play.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(currentSinger?.getShadeColor())
+                    Spacer()
+                    NavigationLink{
+                        Text(currentSinger?.id ?? "ran")
+                    }label: {
+                        CircleNav(iconName: "clock.arrow.circlepath", circleSize: 70, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 30)
                     }
-                    .padding(.trailing,70)
-                    
-                   
+                  
+                    Spacer()
+                    NavigationLink{
+                        Text(currentSinger?.id ?? "ran")
+                    }label: {
+                        CircleNav(iconName: "play.fill", circleSize: 100, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 50)
+                    }
+                    .padding(.trailing,65)
+
                     Spacer()
                     Spacer()
                     
                 }
-               
+
+                Spacer()
                 Spacer()
                 Spacer()
             }
