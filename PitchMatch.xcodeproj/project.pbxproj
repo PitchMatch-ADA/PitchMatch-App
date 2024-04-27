@@ -29,6 +29,12 @@
 		C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */; };
 		C7D525062BDC0A11002CAB8C /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525052BDC0A11002CAB8C /* RecordView.swift */; };
 		C7D525092BDC0A21002CAB8C /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525082BDC0A21002CAB8C /* HistoryDetailView.swift */; };
+		C7D5250B2BDC1255002CAB8C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D5250A2BDC1255002CAB8C /* CircleButton.swift */; };
+		C7D5250E2BDC1704002CAB8C /* MicrophonePowerObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D5250D2BDC1704002CAB8C /* MicrophonePowerObserver.swift */; };
+		C7D525102BDC18C5002CAB8C /* VoiceToTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D5250F2BDC18C5002CAB8C /* VoiceToTextParser.swift */; };
+		C7D525142BDC22AC002CAB8C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525132BDC22AC002CAB8C /* Song.swift */; };
+		C7D525162BDC2828002CAB8C /* SongExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525152BDC2828002CAB8C /* SongExtension.swift */; };
+		C7D525182BDC2A1A002CAB8C /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525172BDC2A1A002CAB8C /* AudioContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,13 @@
 		C7ABA69A2BDB7D7A00AFC4E0 /* SingerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerExtension.swift; sourceTree = "<group>"; };
 		C7D525052BDC0A11002CAB8C /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		C7D525082BDC0A21002CAB8C /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
+		C7D5250A2BDC1255002CAB8C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		C7D5250D2BDC1704002CAB8C /* MicrophonePowerObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophonePowerObserver.swift; sourceTree = "<group>"; };
+		C7D5250F2BDC18C5002CAB8C /* VoiceToTextParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceToTextParser.swift; sourceTree = "<group>"; };
+		C7D525112BDC1A66002CAB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C7D525132BDC22AC002CAB8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		C7D525152BDC2828002CAB8C /* SongExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongExtension.swift; sourceTree = "<group>"; };
+		C7D525172BDC2A1A002CAB8C /* AudioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +87,7 @@
 			children = (
 				819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */,
 				819EE2492BDB875800B082BF /* HistoryListView.swift */,
+				C7D5250A2BDC1255002CAB8C /* CircleButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -97,6 +111,7 @@
 		C710544C2BD7C7E600654867 /* PitchMatch */ = {
 			isa = PBXGroup;
 			children = (
+				C7D525112BDC1A66002CAB8C /* Info.plist */,
 				C7ABA64A2BDA53C900AFC4E0 /* Resources */,
 				C7ABA68E2BDB42B800AFC4E0 /* Model */,
 				C7ABA6902BDB42C200AFC4E0 /* View */,
@@ -153,8 +168,10 @@
 		C7ABA68E2BDB42B800AFC4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7D5250C2BDC16F7002CAB8C /* Record */,
 				C7ABA6992BDB7D6F00AFC4E0 /* History */,
 				C7ABA6912BDB42D400AFC4E0 /* Singer */,
+				C7D525122BDC229E002CAB8C /* Song */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +226,25 @@
 				C7D525082BDC0A21002CAB8C /* HistoryDetailView.swift */,
 			);
 			path = HistoryDetail;
+			sourceTree = "<group>";
+		};
+		C7D5250C2BDC16F7002CAB8C /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				C7D5250D2BDC1704002CAB8C /* MicrophonePowerObserver.swift */,
+				C7D5250F2BDC18C5002CAB8C /* VoiceToTextParser.swift */,
+				C7D525172BDC2A1A002CAB8C /* AudioContext.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		C7D525122BDC229E002CAB8C /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				C7D525132BDC22AC002CAB8C /* Song.swift */,
+				C7D525152BDC2828002CAB8C /* SongExtension.swift */,
+			);
+			path = Song;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,13 +326,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D525182BDC2A1A002CAB8C /* AudioContext.swift in Sources */,
 				C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */,
 				C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */,
+				C7D525162BDC2828002CAB8C /* SongExtension.swift in Sources */,
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
+				C7D5250B2BDC1255002CAB8C /* CircleButton.swift in Sources */,
 				C7D525062BDC0A11002CAB8C /* RecordView.swift in Sources */,
 				C7D525092BDC0A21002CAB8C /* HistoryDetailView.swift in Sources */,
 				C7ABA68D2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel in Sources */,
 				C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */,
+				C7D5250E2BDC1704002CAB8C /* MicrophonePowerObserver.swift in Sources */,
+				C7D525142BDC22AC002CAB8C /* Song.swift in Sources */,
+				C7D525102BDC18C5002CAB8C /* VoiceToTextParser.swift in Sources */,
 				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
 				819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */,
 				C7ABA6962BDB42FD00AFC4E0 /* HomeView.swift in Sources */,
@@ -434,6 +476,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PitchMatch/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -472,6 +515,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PitchMatch/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

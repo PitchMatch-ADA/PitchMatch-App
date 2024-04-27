@@ -10,9 +10,9 @@ import Foundation
 class Singer: Identifiable {
     let id: String
     let imageName: String
-    let clips: [String]
+    let clips: [Song]
     
-    init(id: String, imageName: String, clips: [String]) {
+    init(id: String, imageName: String, clips: [Song]) {
         self.id = id
         self.imageName = imageName
         self.clips = clips
@@ -23,29 +23,17 @@ class Singer: Identifiable {
             Singer(
                 id: "ArdhitoPramono",
                 imageName: "ArdhitoPramono",
-                clips: [
-                    "Resources/Song/APDisenayan",
-                    "Resources/Song/APSudah",
-                    "Resources/Song/APTemanPerjalan"
-                ]
+                clips: Song.getAP()
             ),
             Singer(
                 id: "Ran",
                 imageName: "Ran",
-                clips: [
-                    "Resources/Song/RanAkanKulakukanSemuaUntukmu",
-                    "Resources/Song/RanDekatDiHati",
-                    "Resources/Song/RanSiLemah"
-                ]
+                clips: Song.getRan()
             ),
             Singer(
                 id: "Tulus",
                 imageName: "Tulus",
-                clips: [
-                    "Resources/Song/Tulus1000Tahun",
-                    "Resources/Song/TulusHatiHatiDiJalan",
-                    "Resources/Song/TulusTemanHidup"
-                ]
+                clips: Song.getTulus()
             )
         ]
     }
@@ -60,7 +48,7 @@ class Singer: Identifiable {
         }
     }
     
-    func getRandomClip() -> String? {
+    func getRandomClip() -> Song? {
         return clips.randomElement()
     }
 }
