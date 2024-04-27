@@ -25,21 +25,14 @@ class MicrophonePowerObserver: ObservableObject {
                 AVNumberOfChannelsKey: 1
             ]
             
-            let directoryURL = FileManager.default.urls(
-                for: FileManager.SearchPathDirectory.documentDirectory,
-                in: FileManager.SearchPathDomainMask.userDomainMask
-            ).first
-                    
-            let audioFileName = UUID().uuidString + ".m4a"
-            let audioFileURL = directoryURL!.appendingPathComponent(audioFileName)
+            let name = "test.m4a"
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let audioFileName = path.appendingPathComponent(name)
             
-            fileName = audioFileName
+            fileName = name
             
             let recorder = try AVAudioRecorder(
-                url: URL(
-                    fileURLWithPath: audioFileName,
-                    isDirectory: true
-                ),
+                url: audioFileName,
                 settings: recorderSettings
             )
             

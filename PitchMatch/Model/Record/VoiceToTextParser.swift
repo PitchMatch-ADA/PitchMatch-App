@@ -47,7 +47,7 @@ class VoiceToTextParser: ObservableObject {
         let chosenLocale = Locale.init(identifier: languageCode)
         let supportedLocale = SFSpeechRecognizer.supportedLocales().contains(chosenLocale) ? chosenLocale : Locale.init(identifier: "en-US")
         
-        self.recognizer = SFSpeechRecognizer(locale: supportedLocale)
+        self.recognizer = SFSpeechRecognizer(locale: chosenLocale)
         
         guard recognizer?.isAvailable == true else {
             updateState(
@@ -57,6 +57,24 @@ class VoiceToTextParser: ObservableObject {
         }
         
         audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession?.setCategory(
+                .playAndRecord,
+                mode: .spokenAudio,
+                options: .duckOthers
+            )
+            
+            try audioSession?.setActive(
+                true,
+                options: .notifyOthersOnDeactivation
+            )
+        } catch {
+            updateState(
+                error: error.localizedDescription
+            )
+            return
+        }
         
         self.requestPermission { [weak self] in
             self?.audioBufferRequest = SFSpeechAudioBufferRecognitionRequest()
@@ -97,17 +115,6 @@ class VoiceToTextParser: ObservableObject {
             self?.audioEngine?.prepare()
             
             do {
-                try self?.audioSession?.setCategory(
-                    .playAndRecord,
-                    mode: .spokenAudio,
-                    options: .duckOthers
-                )
-                
-                try self?.audioSession?.setActive(
-                    true,
-                    options: .notifyOthersOnDeactivation
-                )
-                
                 self?.micObserver.startObserving()
                 
                 try self?.audioEngine?.start()
@@ -121,7 +128,7 @@ class VoiceToTextParser: ObservableObject {
                         )
                     }
                 
-                self?.fileNameCancellable = self?.$fileName
+                self?.fileNameCancellable = self?.audioFileName
                     .sink { [weak self] name in
                         self?.updateState(
                             fileName: name
@@ -156,10 +163,22 @@ class VoiceToTextParser: ObservableObject {
         audioSession = nil
     }
     
-    private func requestPermission(
+    func requestPermission(
         onGranted: @escaping () -> Void
     ) {
-        audioSession?.requestRecordPermission { [weak self] wasGranted in
+        switch AVAudioApplication.shared.recordPermission {
+        case .granted:
+            onGranted()
+            return
+        case .denied:
+            print("Permission denied")
+        case .undetermined:
+            print("Request permission here")
+        @unknown default:
+            print("Unknown case")
+        }
+        
+        AVAudioApplication.requestRecordPermission { [weak self] wasGranted in
             if !wasGranted {
                 self?.updateState(
                     error: "you need to grant permission to record your voice."
@@ -193,10 +212,10 @@ class VoiceToTextParser: ObservableObject {
         fileName: String? = nil,
         isSpeaking: Bool? = nil
     ) {
-        self.result = result ?? ""
+        self.result = result ?? self.result
         self.error = error
-        self.powerRatio = powerRatio ?? 0.0
-        self.fileName = fileName ?? ""
-        self.isSpeaking = isSpeaking ?? false
+        self.powerRatio = powerRatio ?? self.powerRatio
+        self.fileName = fileName ?? self.fileName
+        self.isSpeaking = isSpeaking ?? self.isSpeaking
     }
 }
