@@ -13,7 +13,7 @@ struct CircularProgressBar: View {
     let circleHeight:CGFloat = 217
     @State var xPos:CGFloat = 0.0
     let singer: Singer
-    var barColor: Color? //TODO: sumpah aneh banget ini gabisa muncul param nya pas declare
+    var barColor: Color //TODO: sumpah aneh banget ini gabisa muncul param nya pas declare
            
        @State var yPos:CGFloat = 0.0
        var body: some View {
@@ -35,7 +35,7 @@ struct CircularProgressBar: View {
                         .overlay(
                             Circle()
                                 .trim(from: 0, to: progress / 100 * 0.7) //TODO: plis tolong ini calculationnya masukin ke var
-                                .stroke(barColor ?? Color.purpleMain,style: StrokeStyle(lineWidth: 15.0, lineCap: .round, dash: [0.1]))
+                                .stroke(barColor,style: StrokeStyle(lineWidth: 15.0, lineCap: .round, dash: [0.1]))
                                 
                                 .rotationEffect(.init(degrees: 142))
                                 .rotation3DEffect(
@@ -62,6 +62,6 @@ struct CircularProgressBar: View {
 }
 
 #Preview {
-    CircularProgressBar(progress: 70, singer: .init(id: "1", imageName: "RAN", clips: [Song.getAP()[0]])
+    CircularProgressBar(progress: 70, singer: .init(id: "1", imageName: "RAN", clips: [Song.getAP()[0]]), barColor: .red
     )
 }

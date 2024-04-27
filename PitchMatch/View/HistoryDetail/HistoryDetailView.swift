@@ -14,7 +14,7 @@ struct HistoryDetailView: View {
     
     var body: some View {
         VStack{
-            CircularProgressBar(progress: 10, singer: singer ?? Singer.getSingers()[0])
+            CircularProgressBar(progress: 10, singer: singer ?? Singer.getSingers()[0], barColor: singer?.getShadeColor() ?? .yellowShade4)
             Spacer()
             TabView(selection: $selectedSong,
                     content:  {

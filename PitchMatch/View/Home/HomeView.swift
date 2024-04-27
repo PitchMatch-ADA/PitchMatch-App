@@ -43,7 +43,7 @@ struct HomeView: View {
 //                            } label: {
 //                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
 //                            }
-                            CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
+                            CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
                             .buttonStyle(.plain)
                             
                             .padding(.top,30)
@@ -64,7 +64,7 @@ struct HomeView: View {
                     
                     Spacer()
                     NavigationLink{
-                        RecordView(singer: currentSinger)
+                        HistoryDetailView(singer: currentSinger)
                     }label: {
                         CircleNav(iconName: "clock.arrow.circlepath", circleSize: 70, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 30)
                     }
