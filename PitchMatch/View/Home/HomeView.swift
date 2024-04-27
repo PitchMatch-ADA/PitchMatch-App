@@ -62,28 +62,15 @@ struct HomeView: View {
                 
                 HStack{
                     Spacer()
-                   
-                    ZStack{
-                        Circle()
-                                    .frame(width: 70, height: 90)
-                                    .foregroundColor(.white)
-                                Image(systemName: "clock.arrow.circlepath")
-                            .font(.system(size: 35))
-                            .foregroundColor(currentSinger?.getShadeColor())
+                    CircleButton(iconName: "clock.arrow.circlepath") {
+                       
                     }
                     Spacer()
-                    
-                    ZStack{
-                        Circle()
-                                    .frame(width: 90, height: 90)
-                                    .foregroundColor(.white)
-                                Image(systemName: "play.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(currentSinger?.getShadeColor())
+                    CircleButton(iconName: "play.fill") {
+                       
                     }
-                    .padding(.trailing,70)
-                    
-                   
+                    .padding(.trailing,100)
+
                     Spacer()
                     Spacer()
                     
