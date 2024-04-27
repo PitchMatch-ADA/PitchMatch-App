@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryDetailCard: View {
-//    @State var record: History
+    //    @State var record: History
     @State var song: Song //TODO: nnti ganti History just wanna test some things
     var body: some View {
         HStack{
@@ -16,13 +16,13 @@ struct HistoryDetailCard: View {
                 .foregroundStyle(Color.yellowMain)
                 .font(.title3)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            RecorderDisplay(backgroundRatios: song.powerRatios.map{ ratio in
-                Double(truncating: ratio as NSNumber)
-            },
-                            powerRatios: song.powerRatios.map{ ratio in
-                Double(truncating: ratio as NSNumber)
-            },
-                            color: Color.yellowMain)
+            //            RecorderDisplay(backgroundRatios: song.powerRatios.map{ ratio in
+            //                Double(truncating: ratio as NSNumber)
+            //            },
+            //                            powerRatios: song.powerRatios.map{ ratio in
+            //                Double(truncating: ratio as NSNumber)
+            //            },
+            //                            color: Color.yellowMain)
             CircleButton(iconName: "play.fill"){
                 
             }

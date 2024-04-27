@@ -64,14 +64,14 @@ struct HomeView: View {
                     
                     Spacer()
                     NavigationLink{
-                        Text(currentSinger?.id ?? "ran")
+                        RecordView(singer: currentSinger)
                     }label: {
                         CircleNav(iconName: "clock.arrow.circlepath", circleSize: 70, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 30)
                     }
                   
                     Spacer()
                     NavigationLink{
-                        Text(currentSinger?.id ?? "ran")
+                        RecordView(singer: currentSinger)
                     }label: {
                         CircleNav(iconName: "play.fill", circleSize: 100, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 50)
                     }
