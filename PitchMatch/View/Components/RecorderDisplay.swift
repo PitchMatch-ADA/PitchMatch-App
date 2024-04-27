@@ -9,113 +9,120 @@ import SwiftUI
 
 
 struct RecorderDisplay: View {
+    @State private var scrollPosition: Int? = 0
+    
     let backgroundRatios: [Double]
     let powerRatios: [Double]
     let color: Color
+    let proxy: GeometryProxy
+    
+    var height: CGFloat?
+    var isLoading: Bool = true
+    
+    let barWidth = 3.0
+    var barCount: Int {
+        Int(proxy.size.width / Double(2 * barWidth))
+    }
+    let defaultLevel = 0.05
+    var center: CGFloat {
+        if let height = height {
+            height / 2
+        } else {
+            proxy.size.height / 2
+        }
+    }
     
     var body: some View {
-        Canvas { context, size in
-            context.clip(
-                to: Path(
-                    CGRect(
-                        origin: .zero,
-                        size: size
-                    )
-                )
-            )
-            
-            let barWidth = 3.0
-            let barCount = Int(size.width / Double(2 * barWidth))
-            let defaultLevel = 0.05
-            
-            let startIndex = max(0, (powerRatios.count - barCount))
-            let endIndex = min(
-                backgroundRatios.count,
-                max(
-                    barCount,
-                    (powerRatios.count + barCount / 2)
-                )
-            )
-            let reversedBgRatios = backgroundRatios
-                .map { ratio in
-                    min(max(defaultLevel, ratio), 1.0)
-                }[startIndex..<endIndex]
-                .reversed()
-            let reversedRatios = powerRatios
-                .map { ratio in
-                    min(max(defaultLevel, ratio), 1.0)
+        ScrollView(.horizontal, showsIndicators: false) {
+            ZStack {
+                HStack(spacing: barWidth) {
+                    ForEach(
+                        Array(
+                            backgroundRatios
+                                .map { ratio in
+                                    min(max(defaultLevel, ratio), 1.0)
+                                }
+                                .enumerated()
+                        ),
+                        id: \.offset
+                    ) { i, ratio in
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(
+                                width: barWidth,
+                                height: (center - (center - center * ratio)) * 2.0
+                            )
+                            .foregroundStyle(.gray)
+                    }
+                    .scrollTargetLayout()
+                    
+                    Spacer()
                 }
-                .suffix(barCount)
-                .reversed()
-            
-            for (i, powerRatio) in reversedBgRatios.enumerated() {
-                let centerY = CGFloat(size.height / 2.0)
-                let yTopStart = CGFloat(centerY - centerY * powerRatio)
-                var path = Path()
                 
-                path.addRoundedRect(
-                    in: CGRect(
-                        x: CGFloat(size.width) - CGFloat(i) * 2.0 * barWidth,
-                        y: yTopStart,
-                        width: barWidth,
-                        height: (centerY - yTopStart) * 2.0
-                    ),
-                    cornerSize: CGSize(
-                        width: 10.0,
-                        height: 10.0
-                    )
-                )
-                
-                context.fill(
-                    path,
-                    with: .color(.gray)
-                )
+                HStack(spacing: barWidth) {
+                    ForEach(
+                        Array(
+                            powerRatios
+                                .map { ratio in
+                                    min(max(defaultLevel, ratio), 1.0)
+                                }
+                                .enumerated()
+                        ),
+                        id: \.offset
+                    ) { i, ratio in
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(
+                                width: barWidth,
+                                height: (center - (center - center * ratio)) * 2.0
+                            )
+                            .foregroundStyle(color.opacity(0.5))
+                    }
+                    
+                    Spacer()
+                }
             }
-            
-            for (i, powerRatio) in reversedRatios.enumerated() {
-                let centerY = CGFloat(size.height / 2.0)
-                let yTopStart = CGFloat(centerY - centerY * powerRatio)
-                var path = Path()
-                
-                path.addRoundedRect(
-                    in: CGRect(
-                        x: CGFloat(size.width) - CGFloat(i) * 2.0 * barWidth,
-                        y: yTopStart,
-                        width: barWidth,
-                        height: (centerY - yTopStart) * 2.0
-                    ),
-                    cornerSize: CGSize(
-                        width: 10.0,
-                        height: 10.0
-                    )
-                )
-                
-                context.fill(
-                    path,
-                    with: .color(color.opacity(0.5))
-                )
-            }
+            .padding(.vertical)
         }
+        .scrollPosition(id: $scrollPosition)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(color, lineWidth: 1)
         )
         .padding(8)
         .background(.bg)
+        .overlay {
+            if isLoading {
+                ZStack(alignment: .center) {
+                    Color.black
+                        .opacity(0.4)
+                    
+                    ProgressView()
+                        .tint(color)
+                        .controlSize(.large)
+                }
+            }
+        }
         .cornerRadius(10)
         .padding()
         .shadow(radius: 4)
+        .onChange(of: powerRatios) { ratio in
+            if ratio.count >= (barCount/2) {
+                scrollPosition = (scrollPosition ?? 0) + 1
+            }
+        }
     }
 }
 
 #Preview {
-    RecorderDisplay(
-        backgroundRatios: Song.getAP()[1].powerRatios.map { ratio in
-            Double(truncating: ratio as NSNumber)
-        },
-        powerRatios: Song.getAP()[0].powerRatios.map { ratio in
-            Double(truncating: ratio as NSNumber)
-        },
-        color: .yellowMain
-    )
+    GeometryReader { proxy in
+        RecorderDisplay(
+            backgroundRatios: Song.getAP()[1].powerRatios.map { ratio in
+                Double(truncating: ratio as NSNumber)
+            },
+            powerRatios: Song.getAP()[1].powerRatios.map { ratio in
+                Double(truncating: ratio as NSNumber)
+            },
+            color: .yellowMain,
+            proxy: proxy
+        )
+    }
 }

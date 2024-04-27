@@ -39,7 +39,7 @@ struct HomeView: View {
                         
                         VStack {
                             NavigationLink {
-                                Text(singer.id)
+                                RecordView(singer: singer)
                             } label: {
                                 CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
                             }
