@@ -48,6 +48,19 @@ extension Singer {
         }
     }
     
+    func getShadeThreeColor() -> Color {
+        switch self.id {
+        case "ArdhitoPramono":
+            return .purpleShade3
+        case "Tulus":
+            return .yellowShade3
+        case "Ran":
+            return .redShade3
+        default:
+            return .yellowShade3
+        }
+    }
+    
     func getInteractiveColor() -> Color {
         switch self.id {
         case "ArdhitoPramono":

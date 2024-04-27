@@ -15,11 +15,13 @@ struct RecordView: View {
     @State private var clip: Song? = nil
     @State private var audioPlayer: AVAudioPlayer? = nil
     
-    let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     @State private var songPowerRatios: [Float] = []
     @State private var receiveTime = 0
     
     @State private var isLoading: Bool = true
+    @State private var finishFirstTime: Bool = false
+    @State private var isPlaying: Bool = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -48,12 +50,51 @@ struct RecordView: View {
                 
                 Spacer()
                 
-                CircleButton(
-                    iconName: "mic.fill",
-                    onClick: {
+                HStack {
+                    if finishFirstTime {
+                        let disabled = isPlaying
                         
+                        CircleButton(
+                            iconName: "arrow.circlepath",
+                            onClick: {
+                                songPowerRatios = []
+                                timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+                                receiveTime = 0
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    audioPlayer?.play()
+                                    isPlaying = true
+                                }
+                            },
+                            logoColor: disabled ? .gray : singer?.getPrimaryColor(),
+                            iconSize: .headline,
+                            circleSize: 64
+                        )
+                        .disabled(disabled)
+                    } else {
+                        Spacer()
+                            .frame(width: 64)
                     }
-                )
+                    
+                    Spacer()
+                    
+                    let disabled = !finishFirstTime || isPlaying
+                    
+                    CircleButton(
+                        iconName: "mic.fill",
+                        onClick: {
+                            
+                        },
+                        logoColor: disabled ? .gray : singer?.getPrimaryColor()
+                    )
+                    .disabled(disabled)
+                    
+                    Spacer()
+                    
+                    Spacer()
+                        .frame(width: 64)
+                }
+                .padding(.horizontal, 24)
             }
         }
         .padding(.vertical, 48)
@@ -76,18 +117,21 @@ struct RecordView: View {
             audioPlayer?.stop()
         }
         .task {
-            if let fileName = Bundle.main.path(forResource: clip?.id, ofType: "mp3") {
-                audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                if let fileName = Bundle.main.path(forResource: clip?.id, ofType: "mp3") {
+                    audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
+                }
+                
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                } catch(let error) {
+                    print(error.localizedDescription)
+                }
+                
+                isLoading = false
+                audioPlayer?.play()
+                isPlaying = true
             }
-            
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback)
-            } catch(let error) {
-                print(error.localizedDescription)
-            }
-            
-            isLoading = false
-            audioPlayer?.play()
         }
         .onReceive(timer) { _ in
             if audioPlayer?.isPlaying ?? false || !songPowerRatios.isEmpty {
@@ -98,6 +142,8 @@ struct RecordView: View {
                 
                 if (receiveTime/20) == clip?.second {
                     timer.upstream.connect().cancel()
+                    isPlaying = false
+                    finishFirstTime = true
                 }
             }
         }

@@ -36,6 +36,9 @@ struct RecorderDisplay: View {
         ScrollView(.horizontal, showsIndicators: false) {
             ZStack {
                 HStack(spacing: barWidth) {
+                    Spacer()
+                        .frame(width: 3)
+                    
                     ForEach(
                         Array(
                             backgroundRatios
@@ -59,6 +62,9 @@ struct RecorderDisplay: View {
                 }
                 
                 HStack(spacing: barWidth) {
+                    Spacer()
+                        .frame(width: 3)
+                    
                     ForEach(
                         Array(
                             powerRatios
@@ -107,6 +113,10 @@ struct RecorderDisplay: View {
         .onChange(of: powerRatios) { ratio in
             if ratio.count >= (barCount/2) {
                 scrollPosition = (scrollPosition ?? 0) + 1
+            }
+            
+            if ratio.count == 0 {
+                scrollPosition = 0
             }
         }
     }
