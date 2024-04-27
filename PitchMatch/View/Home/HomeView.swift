@@ -41,16 +41,11 @@ struct HomeView: View {
                             NavigationLink {
                                 Text(singer.id)
                             } label: {
-                                Image("RAN")
-                                    .clipped()
-                                    .scaledToFit()
-                                    .frame(width: imageWidth ,height: imageHeight)
-                                    .tag(index)
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
                             }
                             .buttonStyle(.plain)
                             
-                            Spacer()
+                            .padding(.top,-120)
                         }
                     }
                 }
@@ -63,6 +58,22 @@ struct HomeView: View {
                     currentSinger = singers.isEmpty ? nil : singers[index]
                 }
                 
+                
+                
+                HStack{
+
+                    ZStack{
+                        Circle()
+                                    .frame(width: 90, height: 90)
+                                    .foregroundColor(.white)
+                                Image(systemName: "play.fill")
+                            .font(.system(size: 50))
+                            .foregroundColor(currentSinger?.getShadeColor())
+                    }
+                    
+                    
+                    
+                }
                 Spacer()
             }
         }

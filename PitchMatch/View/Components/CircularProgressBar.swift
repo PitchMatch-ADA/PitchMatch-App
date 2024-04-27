@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-    @State var progress:Double = 0
+    let progress:Double
        var total:Double =  100
        let circleHeight:CGFloat = 217
        @State var xPos:CGFloat = 0.0
         let singer: Singer
+    
            
        @State var yPos:CGFloat = 0.0
        var body: some View {
@@ -22,20 +23,21 @@ struct CircularProgressBar: View {
                Image(singer.imageName)
                  .resizable()
                  .frame(width: 210, height: 210)
-                 .cornerRadius(110)
-                 .aspectRatio(contentMode: .fit)
+                 .cornerRadius(1000)
+                 .scaledToFill()
+                 
                    .overlay(
                     Circle()
-                        .trim(from: 0.0, to: 0.6)
+                        .trim(from: 0.0, to: 0.7)
                         .stroke(Color(.systemGray5),style: StrokeStyle(lineWidth: 25.0, lineCap: .round, dash: [0.1]))
                         .frame(width: 278, height: 217, alignment: .center)
-                        .rotationEffect(.init(degrees: 162))
+                        .rotationEffect(.init(degrees: 142))
                         .overlay(
                             Circle()
-                                .trim(from: 0, to: 0.4)
+                                .trim(from: 0, to: progress)
                                 .stroke(Color.purple,style: StrokeStyle(lineWidth: 15.0, lineCap: .round, dash: [0.1]))
                                 
-                                .rotationEffect(.init(degrees: 162))
+                                .rotationEffect(.init(degrees: 142))
                                 .rotation3DEffect(
                                     .init(degrees: 1),
                                     axis: (x: 1.0, y: 0.0, z: 0.0)
@@ -48,6 +50,10 @@ struct CircularProgressBar: View {
                
                
                Text("70%")
+                   .font(.title)
+                   .fontWeight(.bold)
+                   .foregroundColor(Color.white)
+                   
                
                
            }
@@ -57,5 +63,5 @@ struct CircularProgressBar: View {
 }
 
 #Preview {
-    CircularProgressBar(singer: .init(id: "1", imageName: "RAN", clips: ["Resources/Song/RanSiLemah"]))
+    CircularProgressBar(progress: 0.1, singer: .init(id: "1", imageName: "RAN", clips: ["Resources/Song/RanSiLemah"]))
 }
