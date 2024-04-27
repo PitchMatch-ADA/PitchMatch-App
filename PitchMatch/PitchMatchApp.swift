@@ -10,9 +10,12 @@ import SwiftData
 
 @main
 struct PitchMatchApp: App {
+    @StateObject private var voiceToTextParser = VoiceToTextParser()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(voiceToTextParser)
         }
         .modelContainer(for: [History.self])
     }
