@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var singers: [Singer] = []
     @State private var currentSinger: Singer?
     @State private var selectedIndex: Int = 0
+    @State private var haveAppeared: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -39,11 +40,6 @@ struct HomeView: View {
                             }
                             
                             VStack {
-    //                            NavigationLink {
-    //                                Text(singer.id)
-    //                            } label: {
-    //                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips))
-    //                            }
                                 CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
                                 .buttonStyle(.plain)
                                 
@@ -77,12 +73,9 @@ struct HomeView: View {
                             CircleNav(iconName: "play.fill", circleSize: 100, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 50)
                         }
                         .padding(.trailing,65)
-
                         Spacer()
                         Spacer()
-                        
                     }
-
                     Spacer()
                     Spacer()
                     Spacer()
@@ -93,20 +86,17 @@ struct HomeView: View {
                     currentSinger?.getTintColor() ?? .yellowShade4,
                     currentSinger?.getShadeColor() ?? .yellowShade4]),
                     startPoint: .top, endPoint: .bottom)
-    //            LinearGradient(
-    //                colors: [
-    //                    currentSinger?.getTintColor() ?? .yellowTint4,
-    //                    currentSinger?.getShadeColor() ?? .yellowShade4
-    //                ],
-    //                startPoint: .top,
-    //                endPoint: .bottom
-    //            )
             )
             .onAppear {
-                singers = Singer.getSingers()
-                
-                selectedIndex = singers.count / 2
-                currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
+                if !haveAppeared {
+                    singers = Singer.getSingers()
+                    selectedIndex = singers.count / 2
+                    currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
+                    
+                    haveAppeared = true
+                }
+
+               
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
