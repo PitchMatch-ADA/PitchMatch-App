@@ -12,13 +12,14 @@ struct CircleNav: View {
     let circleSize:CGFloat
     let iconColor:Color
     let iconSize:CGFloat
+    var backgroundColor: Color?
 //    let circleSize:Int
     
     var body: some View {
         ZStack {
             Circle()
                 .frame(width: circleSize, height: circleSize)
-                .foregroundColor(.white)
+                .foregroundColor(backgroundColor ?? Color.white)
             Image(systemName: iconName)
                 .foregroundColor(iconColor)
                 .font(.system(size: iconSize))
