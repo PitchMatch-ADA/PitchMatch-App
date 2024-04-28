@@ -32,14 +32,14 @@ struct HistoryDetailCard: View {
                 }, powerRatios: song.powerRatios.map{ ratio in
                     Double(truncating: ratio as NSNumber)
                 }, color: color ?? Color.yellowMain, proxy: proxy, height: 25)
-                CircleButton(iconName: "play.fill"){
+                Button{
                     
+                } label: {
+                    CircleNav(iconName: "play.fill", circleSize: 40, iconColor: .white, iconSize: 20, backgroundColor: color ?? Color.yellowMain)
                 }
-                .scaleEffect(0.5)
-                .frame(width: 50, height: 50)
             }
             .frame(height: 100)
-            .padding(5)
+            .padding(.horizontal, 10)
             .background(Color.bg)
             .clipShape(.rect(cornerSize: CGSize(width: 10, height: 10)))
         }
