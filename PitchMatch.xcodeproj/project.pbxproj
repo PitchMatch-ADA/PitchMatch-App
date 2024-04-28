@@ -12,6 +12,7 @@
 		819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */; };
 		819EE2532BDD511900B082BF /* CircleNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE2522BDD511900B082BF /* CircleNav.swift */; };
 		C706B9982BDCA8D300133BE8 /* RecorderDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */; };
+		C706B99D2BDEB07E00133BE8 /* RecordResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706B99C2BDEB07E00133BE8 /* RecordResultView.swift */; };
 		C710544E2BD7C7E600654867 /* PitchMatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544D2BD7C7E600654867 /* PitchMatchApp.swift */; };
 		C71054502BD7C7E600654867 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544F2BD7C7E600654867 /* ContentView.swift */; };
 		C71054522BD7C7E700654867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054512BD7C7E700654867 /* Assets.xcassets */; };
@@ -38,6 +39,15 @@
 		C7D525142BDC22AC002CAB8C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525132BDC22AC002CAB8C /* Song.swift */; };
 		C7D525162BDC2828002CAB8C /* SongExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525152BDC2828002CAB8C /* SongExtension.swift */; };
 		C7D525182BDC2A1A002CAB8C /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525172BDC2A1A002CAB8C /* AudioContext.swift */; };
+		C7EBEE652BDEB84700FAB822 /* TulusTemanHidupIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE5C2BDEB84700FAB822 /* TulusTemanHidupIns.mp3 */; };
+		C7EBEE662BDEB84700FAB822 /* RanDekatDiHatiIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE5D2BDEB84700FAB822 /* RanDekatDiHatiIns.mp3 */; };
+		C7EBEE672BDEB84700FAB822 /* APTemanPerjalananIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE5E2BDEB84700FAB822 /* APTemanPerjalananIns.mp3 */; };
+		C7EBEE682BDEB84700FAB822 /* APDiSenayanIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE5F2BDEB84700FAB822 /* APDiSenayanIns.mp3 */; };
+		C7EBEE692BDEB84700FAB822 /* RanAkanKulakukanSemuaUntukmuIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE602BDEB84700FAB822 /* RanAkanKulakukanSemuaUntukmuIns.mp3 */; };
+		C7EBEE6A2BDEB84700FAB822 /* Tulus1000TahunIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE612BDEB84700FAB822 /* Tulus1000TahunIns.mp3 */; };
+		C7EBEE6B2BDEB84700FAB822 /* RanSiLemahIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE622BDEB84700FAB822 /* RanSiLemahIns.mp3 */; };
+		C7EBEE6C2BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE632BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 */; };
+		C7EBEE6D2BDEB84700FAB822 /* APSudahIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE642BDEB84700FAB822 /* APSudahIns.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +56,7 @@
 		819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		819EE2522BDD511900B082BF /* CircleNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleNav.swift; sourceTree = "<group>"; };
 		C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderDisplay.swift; sourceTree = "<group>"; };
+		C706B99C2BDEB07E00133BE8 /* RecordResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordResultView.swift; sourceTree = "<group>"; };
 		C710544A2BD7C7E600654867 /* PitchMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C710544D2BD7C7E600654867 /* PitchMatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchMatchApp.swift; sourceTree = "<group>"; };
 		C710544F2BD7C7E600654867 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +86,15 @@
 		C7D525132BDC22AC002CAB8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		C7D525152BDC2828002CAB8C /* SongExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongExtension.swift; sourceTree = "<group>"; };
 		C7D525172BDC2A1A002CAB8C /* AudioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContext.swift; sourceTree = "<group>"; };
+		C7EBEE5C2BDEB84700FAB822 /* TulusTemanHidupIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TulusTemanHidupIns.mp3; sourceTree = "<group>"; };
+		C7EBEE5D2BDEB84700FAB822 /* RanDekatDiHatiIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanDekatDiHatiIns.mp3; sourceTree = "<group>"; };
+		C7EBEE5E2BDEB84700FAB822 /* APTemanPerjalananIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APTemanPerjalananIns.mp3; sourceTree = "<group>"; };
+		C7EBEE5F2BDEB84700FAB822 /* APDiSenayanIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APDiSenayanIns.mp3; sourceTree = "<group>"; };
+		C7EBEE602BDEB84700FAB822 /* RanAkanKulakukanSemuaUntukmuIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanAkanKulakukanSemuaUntukmuIns.mp3; sourceTree = "<group>"; };
+		C7EBEE612BDEB84700FAB822 /* Tulus1000TahunIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tulus1000TahunIns.mp3; sourceTree = "<group>"; };
+		C7EBEE622BDEB84700FAB822 /* RanSiLemahIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanSiLemahIns.mp3; sourceTree = "<group>"; };
+		C7EBEE632BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TulusHatiHatiDiJalanIns.mp3; sourceTree = "<group>"; };
+		C7EBEE642BDEB84700FAB822 /* APSudahIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APSudahIns.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +117,14 @@
 				C706B9972BDCA8D300133BE8 /* RecorderDisplay.swift */,
 				0D0DAD852BDCE81400E4B26A /* HistoryDetailCard.swift */,
 				819EE2522BDD511900B082BF /* CircleNav.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C706B99B2BDEB07200133BE8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C706B99C2BDEB07E00133BE8 /* RecordResultView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -144,6 +172,7 @@
 		C7ABA64A2BDA53C900AFC4E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C7EBEE5B2BDEB83800FAB822 /* Instrument */,
 				C7ABA6792BDB3E2900AFC4E0 /* Song */,
 				C7ABA64D2BDA556000AFC4E0 /* Model */,
 			);
@@ -224,6 +253,7 @@
 		C7D525042BDC0A08002CAB8C /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				C706B99B2BDEB07200133BE8 /* Components */,
 				C7D525052BDC0A11002CAB8C /* RecordView.swift */,
 			);
 			path = Record;
@@ -254,6 +284,22 @@
 				C7D525152BDC2828002CAB8C /* SongExtension.swift */,
 			);
 			path = Song;
+			sourceTree = "<group>";
+		};
+		C7EBEE5B2BDEB83800FAB822 /* Instrument */ = {
+			isa = PBXGroup;
+			children = (
+				C7EBEE5F2BDEB84700FAB822 /* APDiSenayanIns.mp3 */,
+				C7EBEE642BDEB84700FAB822 /* APSudahIns.mp3 */,
+				C7EBEE5E2BDEB84700FAB822 /* APTemanPerjalananIns.mp3 */,
+				C7EBEE602BDEB84700FAB822 /* RanAkanKulakukanSemuaUntukmuIns.mp3 */,
+				C7EBEE5D2BDEB84700FAB822 /* RanDekatDiHatiIns.mp3 */,
+				C7EBEE622BDEB84700FAB822 /* RanSiLemahIns.mp3 */,
+				C7EBEE612BDEB84700FAB822 /* Tulus1000TahunIns.mp3 */,
+				C7EBEE632BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 */,
+				C7EBEE5C2BDEB84700FAB822 /* TulusTemanHidupIns.mp3 */,
+			);
+			path = Instrument;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,16 +360,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EBEE6C2BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 in Resources */,
 				C71054562BD7C7E700654867 /* Preview Assets.xcassets in Resources */,
 				C7ABA6872BDB40DF00AFC4E0 /* RanAkanKulakukanSemuaUntukmu.mp3 in Resources */,
+				C7EBEE692BDEB84700FAB822 /* RanAkanKulakukanSemuaUntukmuIns.mp3 in Resources */,
+				C7EBEE6D2BDEB84700FAB822 /* APSudahIns.mp3 in Resources */,
+				C7EBEE682BDEB84700FAB822 /* APDiSenayanIns.mp3 in Resources */,
+				C7EBEE6A2BDEB84700FAB822 /* Tulus1000TahunIns.mp3 in Resources */,
+				C7EBEE672BDEB84700FAB822 /* APTemanPerjalananIns.mp3 in Resources */,
 				C7ABA6862BDB40DF00AFC4E0 /* APSudah.mp3 in Resources */,
 				C7ABA68B2BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 in Resources */,
+				C7EBEE662BDEB84700FAB822 /* RanDekatDiHatiIns.mp3 in Resources */,
+				C7EBEE6B2BDEB84700FAB822 /* RanSiLemahIns.mp3 in Resources */,
 				C7ABA6892BDB40DF00AFC4E0 /* APDiSenayan.mp3 in Resources */,
 				C7ABA6842BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 in Resources */,
 				C71054522BD7C7E700654867 /* Assets.xcassets in Resources */,
 				C7ABA6882BDB40DF00AFC4E0 /* TulusTemanHidup.mp3 in Resources */,
 				C7ABA6852BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 in Resources */,
 				C7ABA68A2BDB40DF00AFC4E0 /* RanSiLemah.mp3 in Resources */,
+				C7EBEE652BDEB84700FAB822 /* TulusTemanHidupIns.mp3 in Resources */,
 				C7ABA6832BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C706B99D2BDEB07E00133BE8 /* RecordResultView.swift in Sources */,
 				C7D525182BDC2A1A002CAB8C /* AudioContext.swift in Sources */,
 				C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */,
 				C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */,
@@ -484,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = 5SU889K9XY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -523,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = 5SU889K9XY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

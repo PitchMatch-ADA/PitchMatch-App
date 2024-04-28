@@ -88,6 +88,7 @@ struct RecorderDisplay: View {
             }
             .padding(.vertical)
         }
+        .frame(height: height)
         .scrollPosition(id: $scrollPosition)
         .overlay(
             RoundedRectangle(cornerRadius: 10)

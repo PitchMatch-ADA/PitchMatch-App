@@ -10,6 +10,8 @@ import AVFoundation
 
 struct RecordView: View {
     @EnvironmentObject private var voiceToTextParser: VoiceToTextParser
+    @Environment(\.dismiss) private var dismiss
+    
     let singer: Singer?
     
     @State private var clip: Song? = nil
@@ -61,6 +63,7 @@ struct RecordView: View {
                     .clipped()
                 
                 Spacer()
+                    .frame(height: 24)
                 
                 RecorderDisplay(
                     backgroundRatios: clip?.powerRatios.map { ratio in
@@ -71,7 +74,7 @@ struct RecordView: View {
                     },
                     color: singer?.getPrimaryColor() ?? .yellowMain,
                     proxy: proxy,
-                    height: 300,
+                    height: 256,
                     isLoading: isLoading
                 )
                 
@@ -258,9 +261,15 @@ struct RecordView: View {
             }
         }
         .fullScreenCover(isPresented: $finishRecording) {
-            VStack {
-                Text(voiceToTextParser.result)
-            }
+            RecordResultView(
+                singer: singer,
+                clip: clip,
+                result: 100,
+                waves: songPowerRatios,
+                onButtonClick: {
+                    dismiss()
+                }
+            )
         }
     }
 }
