@@ -130,12 +130,13 @@ struct HomeView: View {
             
         }
         .tint(currentSinger?.getShadeThreeColor() ?? .yellowShade3)
+        
     }
     
     func playAudio() {
         Task {
             if let clips = currentSinger?.clips {
-                for clipIndex in 0..<(clips.count ?? 0) {
+                for clipIndex in 0..<(clips.count ) {
                     if let fileName = Bundle.main.path(forResource: clips[clipIndex].id, ofType: "mp3") {
                         do {
                             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
