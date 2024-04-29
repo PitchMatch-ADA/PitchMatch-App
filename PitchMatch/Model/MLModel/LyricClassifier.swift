@@ -10,7 +10,7 @@ import NaturalLanguage
 import CoreML
 
 class LyricClassifier {
-    static let lyricClassifierModel: LyricClassifierModel? = try? LyricClassifierModel(
+    static let lyricClassifierModel: LowercaseLyricClassifier? = try? LowercaseLyricClassifier(
         configuration: MLModelConfiguration()
     )
     

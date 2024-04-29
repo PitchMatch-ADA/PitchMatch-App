@@ -19,6 +19,7 @@
 		C71054502BD7C7E600654867 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710544F2BD7C7E600654867 /* ContentView.swift */; };
 		C71054522BD7C7E700654867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054512BD7C7E700654867 /* Assets.xcassets */; };
 		C71054562BD7C7E700654867 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71054552BD7C7E700654867 /* Preview Assets.xcassets */; };
+		C72993402BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C729933F2BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel */; };
 		C7ABA6832BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67A2BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 */; };
 		C7ABA6842BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67B2BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 */; };
 		C7ABA6852BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7ABA67C2BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 */; };
@@ -68,6 +69,7 @@
 		C71054512BD7C7E700654867 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C71054532BD7C7E700654867 /* PitchMatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitchMatch.entitlements; sourceTree = "<group>"; };
 		C71054552BD7C7E700654867 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C729933F2BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LowercaseLyricClassifier.mlmodel; sourceTree = "<group>"; };
 		C7ABA67A2BDB40DF00AFC4E0 /* RanDekatDiHati.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanDekatDiHati.mp3; sourceTree = "<group>"; };
 		C7ABA67B2BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APTemanPerjalanan.mp3; sourceTree = "<group>"; };
 		C7ABA67C2BDB40DF00AFC4E0 /* Tulus1000Tahun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tulus1000Tahun.mp3; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		C7ABA64D2BDA556000AFC4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C729933F2BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel */,
 				C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */,
 			);
 			path = Model;
@@ -432,6 +435,7 @@
 				C7D5250E2BDC1704002CAB8C /* MicrophonePowerObserver.swift in Sources */,
 				C7D525142BDC22AC002CAB8C /* Song.swift in Sources */,
 				C7D525102BDC18C5002CAB8C /* VoiceToTextParser.swift in Sources */,
+				C72993402BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel in Sources */,
 				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
 				819EE2532BDD511900B082BF /* CircleNav.swift in Sources */,
 				819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */,

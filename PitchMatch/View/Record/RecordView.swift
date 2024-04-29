@@ -397,7 +397,7 @@ struct RecordView: View {
     }
     
     private func analyseLyricResult() -> Double {
-        let lyric = voiceToTextParser.result.capitalized
+        let lyric = voiceToTextParser.result.lowercased()
         let result = LyricClassifier.predict(lyric: lyric)
         let lyricResult = result * 100
         
