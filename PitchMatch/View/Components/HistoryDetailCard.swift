@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryDetailCard: View {
-    //    @State var record: History
+    @State var record: History?
     @State var song: Song //TODO: nnti ganti History just wanna test some things
     var color: Color?
     var proxy: GeometryProxy
