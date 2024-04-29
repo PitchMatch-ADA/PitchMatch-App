@@ -32,69 +32,90 @@ struct RecorderDisplay: View {
         }
     }
     
+    var showButton: Bool = false
+    var isPlaying: Bool = false
+    var onButtonClick: () -> Void = {  }
+    
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            ZStack {
-                HStack(spacing: barWidth) {
-                    Spacer()
-                        .frame(width: 3)
-                    
-                    ForEach(
-                        Array(
-                            backgroundRatios
-                                .map { ratio in
-                                    min(max(defaultLevel, ratio), 1.0)
-                                }
-                                .enumerated()
-                        ),
-                        id: \.offset
-                    ) { i, ratio in
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(
-                                width: barWidth,
-                                height: (center - (center - center * ratio)) * 2.0
-                            )
-                            .foregroundStyle(.gray)
-                    }
-                    .scrollTargetLayout()
-                    
-                    Spacer()
-                }
-                
-                HStack(spacing: barWidth) {
-                    Spacer()
-                        .frame(width: 3)
-                    
-                    ForEach(
-                        Array(
-                            powerRatios
-                                .map { ratio in
-                                    min(max(defaultLevel, ratio), 1.0)
-                                }
-                                .enumerated()
-                        ),
-                        id: \.offset
-                    ) { i, ratio in
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(
-                                width: barWidth,
-                                height: (center - (center - center * ratio)) * 2.0
-                            )
-                            .foregroundStyle(color.opacity(0.5))
+        HStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                ZStack {
+                    HStack(spacing: barWidth) {
+                        Spacer()
+                            .frame(width: 3)
+                        
+                        ForEach(
+                            Array(
+                                backgroundRatios
+                                    .map { ratio in
+                                        min(max(defaultLevel, ratio), 1.0)
+                                    }
+                                    .enumerated()
+                            ),
+                            id: \.offset
+                        ) { i, ratio in
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(
+                                    width: barWidth,
+                                    height: (center - (center - center * ratio)) * 2.0
+                                )
+                                .foregroundStyle(.gray)
+                        }
+                        .scrollTargetLayout()
+                        
+                        Spacer()
                     }
                     
-                    Spacer()
+                    HStack(spacing: barWidth) {
+                        Spacer()
+                            .frame(width: 3)
+                        
+                        ForEach(
+                            Array(
+                                powerRatios
+                                    .map { ratio in
+                                        min(max(defaultLevel, ratio), 1.0)
+                                    }
+                                    .enumerated()
+                            ),
+                            id: \.offset
+                        ) { i, ratio in
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(
+                                    width: barWidth,
+                                    height: (center - (center - center * ratio)) * 2.0
+                                )
+                                .foregroundStyle(color.opacity(0.5))
+                        }
+                        
+                        Spacer()
+                    }
                 }
+                .padding(.vertical)
             }
-            .padding(.vertical)
+            .frame(height: height)
+            .scrollPosition(id: $scrollPosition)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(color, lineWidth: 1)
+            )
+            .padding(.vertical, 8)
+            .padding(.leading, 8)
+            
+            if showButton {
+                Button{
+                    onButtonClick()
+                } label: {
+                    CircleNav(
+                        iconName: isPlaying ? "pause.fill" : "play.fill",
+                        circleSize: 40, iconColor: .white,
+                        iconSize: 20,
+                        backgroundColor: color
+                    )
+                }
+                .padding(.trailing, 8)
+            }
         }
-        .frame(height: height)
-        .scrollPosition(id: $scrollPosition)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(color, lineWidth: 1)
-        )
-        .padding(8)
         .background(.bg)
         .overlay {
             if isLoading {
@@ -112,12 +133,12 @@ struct RecorderDisplay: View {
         .padding()
         .shadow(radius: 4)
         .onChange(of: powerRatios) { ratio in
-            if ratio.count >= (barCount/2) {
-                scrollPosition = (scrollPosition ?? 0) + 1
-            }
-            
             if ratio.count == 0 {
                 scrollPosition = 0
+            }
+            
+            if ratio.count >= (barCount/2) {
+                scrollPosition = (scrollPosition ?? 0) + 1
             }
         }
     }
@@ -133,7 +154,8 @@ struct RecorderDisplay: View {
                 Double(truncating: ratio as NSNumber)
             },
             color: .yellowMain,
-            proxy: proxy
+            proxy: proxy,
+            showButton: true
         )
     }
 }

@@ -21,7 +21,7 @@ class VoiceToTextParser: ObservableObject {
         micObserver.$micPowerRatio
     }
     var audioFileName: Published<String>.Publisher {
-        micObserver.$fileName
+        micObserver.$audioName
     }
     private var micPowerCancellable: AnyCancellable?
     private var fileNameCancellable: AnyCancellable?
@@ -130,9 +130,9 @@ class VoiceToTextParser: ObservableObject {
                 
                 self?.fileNameCancellable = self?.audioFileName
                     .sink { [weak self] name in
-                        self?.updateState(
-                            fileName: name
-                        )
+                        if !name.isEmpty {
+                            self?.fileName = name
+                        }
                     }
                 
             } catch {
@@ -215,7 +215,7 @@ class VoiceToTextParser: ObservableObject {
         self.result = result ?? self.result
         self.error = error
         self.powerRatio = powerRatio ?? self.powerRatio
-        self.fileName = fileName ?? self.fileName
+        // self.fileName = fileName ?? self.fileName
         self.isSpeaking = isSpeaking ?? self.isSpeaking
     }
 }

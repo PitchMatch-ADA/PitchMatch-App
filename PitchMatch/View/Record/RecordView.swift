@@ -9,6 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct RecordView: View {
+    @Environment(\.modelContext) var context
     @EnvironmentObject private var voiceToTextParser: VoiceToTextParser
     @Environment(\.dismiss) private var dismiss
     
@@ -17,6 +18,7 @@ struct RecordView: View {
     @State private var clip: Song? = nil
     @State private var audioPlayer: AVAudioPlayer? = nil
     @State private var songPowerRatios: [Float] = []
+    @State private var userPowerRatios: [Float] = []
     
     @State private var timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     @State private var recordTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -32,6 +34,9 @@ struct RecordView: View {
     
     @State private var isRecording: Bool = false
     @State private var finishRecording: Bool = false
+    
+    @State private var overallResult: Double = 0
+    @State private var recentlyPlayed: Bool = false
     
     private var currentTimeText: String {
         let currentMinute = currentSecond / 60
@@ -115,7 +120,7 @@ struct RecordView: View {
                     
                     Spacer()
                     
-                    let disabled = !finishFirstTime || isPlaying || isLoading || finishRecording
+                    let disabled = !finishFirstTime || isPlaying || isLoading || isRecording || finishRecording
                     
                     CircleButton(
                         iconName: "mic.fill",
@@ -194,6 +199,7 @@ struct RecordView: View {
             audioPlayer?.stop()
             timer.upstream.connect().cancel()
             recordTimer.upstream.connect().cancel()
+            voiceToTextParser.stopListening()
         }
         .task {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -213,7 +219,7 @@ struct RecordView: View {
             }
         }
         .onReceive(timer) { _ in
-            if (audioPlayer?.isPlaying ?? false || !songPowerRatios.isEmpty) && !isRecording {
+            if (audioPlayer?.isPlaying ?? false || !songPowerRatios.isEmpty) && !isRecording && !finishRecording {
                 print(receiveTime)
                 
                 songPowerRatios.append(clip?.powerRatios[receiveTime] ?? 0.0)
@@ -244,6 +250,25 @@ struct RecordView: View {
                     voiceToTextParser.stopListening()
                     isRecording = false
                     finishRecording = true
+                    
+                    userPowerRatios = songPowerRatios
+                }
+            }
+            
+            if finishRecording && isPlaying {
+                print(receiveTime)
+                
+                userPowerRatios.append(songPowerRatios[receiveTime])
+                receiveTime += 1
+                
+                if (receiveTime%20) == 0 {
+                    currentSecond += 1
+                }
+                
+                if (receiveTime/20) == clip?.second {
+                    timer.upstream.connect().cancel()
+                    isPlaying = false
+                    recentlyPlayed = false
                 }
             }
         }
@@ -257,6 +282,8 @@ struct RecordView: View {
                     
                     voiceToTextParser.startListening(languageCode: "id")
                     isRecording = true
+                    
+                    startTime = 3
                 }
             }
         }
@@ -264,13 +291,125 @@ struct RecordView: View {
             RecordResultView(
                 singer: singer,
                 clip: clip,
-                result: 100,
-                waves: songPowerRatios,
-                onButtonClick: {
+                result: overallResult,
+                waves: userPowerRatios,
+                isPlaying: isPlaying,
+                onDismissClick: {
+                    audioPlayer?.stop()
                     dismiss()
+                },
+                onPlayClick: {
+                    if audioPlayer?.isPlaying == true {
+                        audioPlayer?.stop()
+                        recentlyPlayed = true
+                        isPlaying = false
+                    } else {
+                        if recentlyPlayed {
+                            audioPlayer?.play()
+                            isPlaying = true
+                        } else {
+                            Task {
+                                userPowerRatios = []
+                                
+                                timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+                                receiveTime = 0
+                                
+                                audioPlayer?.stop()
+                                
+                                let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                                let audioFile = path.appendingPathComponent(
+                                    voiceToTextParser.fileName
+                                )
+                                
+                                audioPlayer = try? AVAudioPlayer(
+                                    contentsOf: audioFile
+                                )
+                                
+                                do {
+                                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                                } catch(let error) {
+                                    print(error.localizedDescription)
+                                }
+                                
+                                audioPlayer?.play()
+                                isPlaying = true
+                            }
+                        }
+                    }
                 }
             )
         }
+        .onChange(of: voiceToTextParser.result) { _ in
+            let result = analyseResult()
+            
+            overallResult = result
+            saveResult(
+                result: result
+            )
+        }
+    }
+    
+    private func analysePowerResult() -> Double {
+        let clipRatios = clip?.powerRatios ?? []
+        var correct: Int = 0
+        
+        for (i, ratio) in clipRatios.enumerated() {
+            if i < songPowerRatios.count {
+                let resultRatio = songPowerRatios[i]
+                let minCorrect = (ratio - 0.2) <= resultRatio
+                let maxCorrect = (ratio + 0.2) >= resultRatio
+                
+                if minCorrect && maxCorrect {
+                    correct += 1
+                }
+            }
+        }
+        
+        let ratiosResult: Double = (Double(correct) / Double( clipRatios.count)) * 100
+        
+        return ratiosResult
+    }
+    
+    private func analyseLyricResult() -> Double {
+        let lyric = voiceToTextParser.result
+        let result = LyricClassifier.predict(lyric: lyric)
+        let lyricResult = result * 100
+        
+        return lyricResult
+    }
+    
+    private func analyseResult() -> Double {
+        let powerResult = analysePowerResult()
+        let lyricResult = analyseLyricResult()
+        
+        print(powerResult)
+        print(lyricResult)
+        
+        return (powerResult + lyricResult) / 2
+    }
+    
+    private func saveResult(result: Double) {
+        guard let singerId = singer?.id else {
+            print("Singer null")
+            return
+        }
+        guard let songId = clip?.id else {
+            print("Song null")
+            return
+        }
+        
+        let history = History(
+            id: voiceToTextParser.fileName,
+            singerId: singerId,
+            powerRatios: History.processFloatArrayToString(
+                array: songPowerRatios
+            ),
+            frequencies: "",
+            songId: songId,
+            overallScore: result
+        )
+        
+        history.insert(context: context)
     }
 }
 

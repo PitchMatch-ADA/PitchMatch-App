@@ -14,7 +14,7 @@ class MicrophonePowerObserver: ObservableObject {
     private var audioRecorder: AVAudioRecorder? = nil
     
     @Published private(set) var micPowerRatio = 0.0
-    @Published private(set) var fileName = ""
+    @Published private(set) var audioName = ""
     
     private let powerRatioEmissionPerSecond = 20.0
     
@@ -25,11 +25,11 @@ class MicrophonePowerObserver: ObservableObject {
                 AVNumberOfChannelsKey: 1
             ]
             
-            let name = "test.m4a"
+            let name = "\(UUID()).m4a"
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let audioFileName = path.appendingPathComponent(name)
             
-            fileName = name
+            audioName = name
             
             let recorder = try AVAudioRecorder(
                 url: audioFileName,
@@ -71,6 +71,6 @@ class MicrophonePowerObserver: ObservableObject {
         audioRecorder = nil
         
         micPowerRatio = 0.0
-        fileName = ""
+        audioName = ""
     }
 }

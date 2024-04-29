@@ -12,7 +12,9 @@ struct RecordResultView: View {
     let clip: Song?
     let result: Double
     let waves: [Float]
-    let onButtonClick: () -> Void
+    let isPlaying: Bool
+    let onDismissClick: () -> Void
+    let onPlayClick: () -> Void
 
     var body: some View {
         GeometryReader { proxy in
@@ -46,7 +48,10 @@ struct RecordResultView: View {
                     color: singer?.getPrimaryColor() ?? .yellowMain,
                     proxy: proxy,
                     height: 64,
-                    isLoading: false
+                    isLoading: false,
+                    showButton: true,
+                    isPlaying: isPlaying,
+                    onButtonClick: onPlayClick
                 )
                 
                 Spacer()
@@ -54,7 +59,7 @@ struct RecordResultView: View {
                 
                 CircleButton(
                     iconName: "house.fill",
-                    onClick: onButtonClick,
+                    onClick: onDismissClick,
                     logoColor: singer?.getPrimaryColor()
                 )
                 
@@ -82,6 +87,8 @@ struct RecordResultView: View {
         clip: Song.getAP()[0],
         result: 50,
         waves: [],
-        onButtonClick: {  }
+        isPlaying: false,
+        onDismissClick: {  },
+        onPlayClick: {  }
     )
 }
