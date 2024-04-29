@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircleNav: View {
-    let  iconName:String
+    let iconName:String
     let circleSize:CGFloat
     let iconColor:Color
     let iconSize:CGFloat

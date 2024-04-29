@@ -13,6 +13,7 @@ struct HistoryDetailView: View {
     @State var singer: Singer?
     @Query var recordings: [History] //TODO: blom init
     @State var currentSong: Song? = nil
+    @EnvironmentObject private var voiceToTextParser: VoiceToTextParser
     @State var selectedSong: Int = 0
     @State private var audioPlayer: AVAudioPlayer? = nil
     
@@ -47,8 +48,29 @@ struct HistoryDetailView: View {
                         ScrollView{
                             ForEach(Array((recordings) .enumerated()), id: \.offset){
                                 idx, record in
-                                HistoryDetailCard(record: record, song: song, proxy: proxy){
-                                        playAudio(audioResourceId: song.id, isLoop: false)
+                                    if record.songId == song.id{
+                                        HistoryDetailCard(record: record, song: song, proxy: proxy){
+                                            Task{
+                                                audioPlayer?.stop()
+                                                
+                                                let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                                                let audioFile = path.appendingPathComponent(
+                                                    record.id
+                                                )
+                                                
+                                                audioPlayer = try? AVAudioPlayer(
+                                                    contentsOf: audioFile
+                                                )
+                                                
+                                                do {
+                                                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                                                } catch(let error) {
+                                                    print(error.localizedDescription)
+                                                }
+                                                
+                                                audioPlayer?.play()
+                                            }
+                                    }
                                 }
                             }
                         }

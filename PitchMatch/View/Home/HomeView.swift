@@ -136,7 +136,6 @@ struct HomeView: View {
                     haveAppeared = true
                 }
                 
-                
             }
 //            .onChange(of: selectedIndex) { index in
 //                
@@ -161,7 +160,7 @@ struct HomeView: View {
             }
             
         }
-        .tint(currentSinger?.getShadeThreeColor() ?? .yellowShade3)
+        .tint(.bg)
         
     }
     
