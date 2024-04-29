@@ -42,7 +42,7 @@ struct HomeView: View {
         return Dictionary(
             uniqueKeysWithValues:
                 historyDictionary.map { key, value in 
-                    let ovScore = value.reduce(0, +) / Double(value.count)
+                    let ovScore = (value.count > 0) ? value.reduce(0, +) / Double(value.count) : 0.0
                     
                     return (key, ovScore)
                 }
@@ -191,7 +191,11 @@ struct HomeView: View {
 }
 
 #Preview {
-    NavigationStack {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: History.self, configurations: config)
+    
+    return NavigationStack {
         HomeView()
     }
+    .modelContainer(container)
 }
