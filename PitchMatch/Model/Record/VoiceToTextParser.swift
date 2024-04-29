@@ -62,7 +62,7 @@ class VoiceToTextParser: ObservableObject {
             try audioSession?.setCategory(
                 .playAndRecord,
                 mode: .spokenAudio,
-                options: .defaultToSpeaker
+                options: .duckOthers
             )
             
             try audioSession?.setActive(
