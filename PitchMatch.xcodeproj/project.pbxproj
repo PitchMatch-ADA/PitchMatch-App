@@ -48,6 +48,7 @@
 		C7EBEE6B2BDEB84700FAB822 /* RanSiLemahIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE622BDEB84700FAB822 /* RanSiLemahIns.mp3 */; };
 		C7EBEE6C2BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE632BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 */; };
 		C7EBEE6D2BDEB84700FAB822 /* APSudahIns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7EBEE642BDEB84700FAB822 /* APSudahIns.mp3 */; };
+		C7EBEE702BDF434F00FAB822 /* LyricClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EBEE6F2BDF434F00FAB822 /* LyricClassifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		C7EBEE622BDEB84700FAB822 /* RanSiLemahIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanSiLemahIns.mp3; sourceTree = "<group>"; };
 		C7EBEE632BDEB84700FAB822 /* TulusHatiHatiDiJalanIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TulusHatiHatiDiJalanIns.mp3; sourceTree = "<group>"; };
 		C7EBEE642BDEB84700FAB822 /* APSudahIns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = APSudahIns.mp3; sourceTree = "<group>"; };
+		C7EBEE6F2BDF434F00FAB822 /* LyricClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricClassifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 		C7ABA68E2BDB42B800AFC4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7EBEE6E2BDF434500FAB822 /* MLModel */,
 				C7D5250C2BDC16F7002CAB8C /* Record */,
 				C7ABA6992BDB7D6F00AFC4E0 /* History */,
 				C7ABA6912BDB42D400AFC4E0 /* Singer */,
@@ -302,6 +305,14 @@
 			path = Instrument;
 			sourceTree = "<group>";
 		};
+		C7EBEE6E2BDF434500FAB822 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				C7EBEE6F2BDF434F00FAB822 /* LyricClassifier.swift */,
+			);
+			path = MLModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,6 +403,7 @@
 			files = (
 				C706B99D2BDEB07E00133BE8 /* RecordResultView.swift in Sources */,
 				C7D525182BDC2A1A002CAB8C /* AudioContext.swift in Sources */,
+				C7EBEE702BDF434F00FAB822 /* LyricClassifier.swift in Sources */,
 				C7ABA69B2BDB7D7A00AFC4E0 /* SingerExtension.swift in Sources */,
 				C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */,
 				C7D525162BDC2828002CAB8C /* SongExtension.swift in Sources */,
