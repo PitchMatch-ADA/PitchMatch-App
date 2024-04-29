@@ -373,6 +373,16 @@ struct RecordView: View {
                 result: result
             )
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Label("", systemImage: "arrow.left.circle")
+                }
+            }
+        }
     }
     
     private func analysePowerResult() -> Double {

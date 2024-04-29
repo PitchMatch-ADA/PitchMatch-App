@@ -14,6 +14,7 @@ struct HistoryDetailView: View {
     @Query var recordings: [History] //TODO: blom init
     @State var currentSong: Song? = nil
     @EnvironmentObject private var voiceToTextParser: VoiceToTextParser
+    @Environment(\.dismiss) private var dismiss
     @State var selectedSong: Int = 0
     @State private var audioPlayer: AVAudioPlayer? = nil
     
@@ -106,6 +107,16 @@ struct HistoryDetailView: View {
                     endPoint: .bottom
                 )
             )
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Label("", systemImage: "arrow.left.circle")
+                }
+            }
         }
     }
     
