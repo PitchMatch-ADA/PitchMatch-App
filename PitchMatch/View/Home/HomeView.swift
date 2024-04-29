@@ -17,8 +17,6 @@ struct HomeView: View {
     @State private var haveAppeared: Bool = false
     @State private var audioPlayer: AVAudioPlayer? = nil
     @State var currentSong: Song? = nil
-    @State var selectedSong: Int = 0
-    var playerLooper: AVPlayerLooper?
     
     @Query private var histories: [History]
     
@@ -136,19 +134,68 @@ struct HomeView: View {
                     haveAppeared = true
                 }
                 
+                if let fileName = Bundle.main.path(
+                    forResource: currentSinger?.clips.randomElement()?.id ?? "",
+                    ofType: "mp3"
+                ) {
+                    audioPlayer = try? AVAudioPlayer(
+                        contentsOf: URL(fileURLWithPath: fileName)
+                    )
+                    
+                    do {
+                        try AVAudioSession.sharedInstance().setCategory(.playback)
+                    } catch(let error) {
+                        print(error.localizedDescription)
+                    }
+                    
+                    audioPlayer?.play()
+                }
             }
-//            .onChange(of: selectedIndex) { index in
-//                
-//                
-//                
-//                audioPlayer?.stop() //Stop music
-//                currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
-//                currentSong = currentSinger?.clips[selectedSong]
-//                playAudio()
-//            }
-//            .onDisappear(){
-//                audioPlayer?.stop() //Stop music
-//            }
+            .onChange(of: selectedIndex) { index in
+                audioPlayer?.stop() //Stop music
+                currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
+                
+                if let fileName = Bundle.main.path(
+                    forResource: currentSinger?.clips.randomElement()?.id ?? "",
+                    ofType: "mp3"
+                ) {
+                    audioPlayer = try? AVAudioPlayer(
+                        contentsOf: URL(fileURLWithPath: fileName)
+                    )
+                    
+                    do {
+                        try AVAudioSession.sharedInstance().setCategory(.playback)
+                    } catch(let error) {
+                        print(error.localizedDescription)
+                    }
+                    
+                    audioPlayer?.play()
+                }
+            }
+            .onChange(of: audioPlayer?.isPlaying) { isPlaying in
+                if isPlaying == false {
+                    if let fileName = Bundle.main.path(
+                        forResource: currentSinger?.clips.randomElement()?.id ?? "",
+                        ofType: "mp3"
+                    ) {
+                        audioPlayer = try? AVAudioPlayer(
+                            contentsOf: URL(fileURLWithPath: fileName)
+                        )
+                        
+                        do {
+                            try AVAudioSession.sharedInstance().setCategory(.playback)
+                        } catch(let error) {
+                            print(error.localizedDescription)
+                        }
+                        
+                        audioPlayer?.play()
+                    }
+                }
+            }
+            .onDisappear(){
+                audioPlayer?.stop() //Stop music
+                audioPlayer = nil
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Image(systemName: "clock.arrow.circlepath")
@@ -163,31 +210,6 @@ struct HomeView: View {
         .tint(.bg)
         
     }
-    
-    func playAudio() {
-        Task {
-            guard let clips = currentSinger?.clips, !clips.isEmpty else { return }
-            
-            while true {
-                for clipIndex in 0..<clips.count {
-                    if let fileName = Bundle.main.path(forResource: clips[clipIndex].id, ofType: "mp3") {
-                        do {
-                            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
-                            try AVAudioSession.sharedInstance().setCategory(.playback)
-                            audioPlayer?.prepareToPlay()
-                            audioPlayer?.play()
-                            while audioPlayer?.isPlaying ?? false {}
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    
     
 }
 
