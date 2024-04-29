@@ -167,25 +167,27 @@ struct HomeView: View {
     
     func playAudio() {
         Task {
-            if let clips = currentSinger?.clips {
-                for clipIndex in 0..<(clips.count ) {
+            guard let clips = currentSinger?.clips, !clips.isEmpty else { return }
+            
+            while true {
+                for clipIndex in 0..<clips.count {
                     if let fileName = Bundle.main.path(forResource: clips[clipIndex].id, ofType: "mp3") {
                         do {
                             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
                             try AVAudioSession.sharedInstance().setCategory(.playback)
                             audioPlayer?.prepareToPlay()
                             audioPlayer?.play()
-                            
                             while audioPlayer?.isPlaying ?? false {}
                         } catch {
                             print(error.localizedDescription)
                         }
                     }
                 }
-                playAudio()
             }
         }
     }
+    
+    
     
     
 }
