@@ -138,18 +138,18 @@ struct HomeView: View {
                 
                 
             }
-            .onChange(of: selectedIndex) { index in
-                
-                
-                
-                audioPlayer?.stop() //Stop music
-                currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
-                currentSong = currentSinger?.clips[selectedSong]
-                playAudio()
-            }
-            .onDisappear(){
-                audioPlayer?.stop() //Stop music
-            }
+//            .onChange(of: selectedIndex) { index in
+//                
+//                
+//                
+//                audioPlayer?.stop() //Stop music
+//                currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
+//                currentSong = currentSinger?.clips[selectedSong]
+//                playAudio()
+//            }
+//            .onDisappear(){
+//                audioPlayer?.stop() //Stop music
+//            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Image(systemName: "clock.arrow.circlepath")

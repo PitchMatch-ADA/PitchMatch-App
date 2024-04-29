@@ -252,6 +252,7 @@ struct RecordView: View {
                     voiceToTextParser.stopListening()
                     isRecording = false
                     finishRecording = true
+                    isPlaying = false
                     
                     userPowerRatios = songPowerRatios
                 }
