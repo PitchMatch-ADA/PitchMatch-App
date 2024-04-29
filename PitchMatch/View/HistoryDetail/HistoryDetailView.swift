@@ -23,14 +23,14 @@ struct HistoryDetailView: View {
                 Spacer()
                 TabView(selection: $selectedSong,
                         content:  {
-//                    ForEach(Singer.getSingers()) { singer in
-//                        ScrollView{
-//                            ForEach(singer.clips){ song in
-//                                HistoryDetailCard(song: song, proxy: proxy)
-//                            }
-//                        } //place holder
-//                    }
-                    ForEach(singer?.clips ?? []){ song in
+                    //                    ForEach(Singer.getSingers()) { singer in
+                    //                        ScrollView{
+                    //                            ForEach(singer.clips){ song in
+                    //                                HistoryDetailCard(song: song, proxy: proxy)
+                    //                            }
+                    //                        } //place holder
+                    //                    }
+                    ForEach(Array((singer?.clips ?? []) .enumerated()), id: \.offset){ index, song in
                         VStack{
                             Text("\(currentSong?.id ?? "")")
                             Text("\(song.id)")
@@ -43,27 +43,17 @@ struct HistoryDetailView: View {
                 .frame(height: 400)
                 .onAppear{
                     currentSong = singer?.clips[selectedSong]
+                    playAudio()
                 }
                 .onChange(of: selectedSong) { index in
                     audioPlayer?.stop() //Stop music
-                    currentSong = singer?.clips[index]
-                    //TODO: problem, current song ga mau keganti
-                }
-                .task {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        if let fileName = Bundle.main.path(forResource: currentSong?.id, ofType: "mp3") {
-                            audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
-                        }
-                        
-                        do {
-                            try AVAudioSession.sharedInstance().setCategory(.playback)
-                        } catch(let error) {
-                            print(error.localizedDescription)
-                        }
-                        audioPlayer?.play()
-                    }
+                    currentSong = singer?.clips[selectedSong]
+                    playAudio()
                 }
                 //TODO: Masih trial pake Song, jangan lupa ganti
+                .onDisappear{
+                    audioPlayer?.stop()
+                }
             }
             .padding(.vertical, 64)
             .background(
@@ -77,6 +67,21 @@ struct HistoryDetailView: View {
                     endPoint: .bottom
                 )
             )
+        }
+    }
+    
+    func playAudio() {
+        Task{
+            if let fileName = Bundle.main.path(forResource: currentSong?.id, ofType: "mp3") {
+                audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
+            }
+            
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+            } catch(let error) {
+                print(error.localizedDescription)
+            }
+            audioPlayer?.play()
         }
     }
 }
