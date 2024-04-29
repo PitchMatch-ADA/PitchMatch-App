@@ -177,6 +177,7 @@ struct HomeView: View {
                             try AVAudioSession.sharedInstance().setCategory(.playback)
                             audioPlayer?.prepareToPlay()
                             audioPlayer?.play()
+                            
                             while audioPlayer?.isPlaying ?? false {}
                         } catch {
                             print(error.localizedDescription)
