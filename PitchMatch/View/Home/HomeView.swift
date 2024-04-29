@@ -20,6 +20,13 @@ struct HomeView: View {
     var playerLooper: AVPlayerLooper?
     
     @State private var histories: [History] = []
+    
+    private var overallScore : Double {
+        histories.map{ history in history.overallScore
+        }
+        .reduce(0,+)
+           
+    }
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
@@ -49,7 +56,7 @@ struct HomeView: View {
                             VStack {
                                
 
-                                CircularProgressBar(progress: CGFloat(histories.averageOverallScore), singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
+                                CircularProgressBar(progress: overallScore, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
                                 .buttonStyle(.plain)
                                 
                                 .padding(.top,30)
@@ -160,13 +167,7 @@ struct HomeView: View {
     
     
 }
-extension Array where Element == History {
-    var averageOverallScore: Double {
-        guard !self.isEmpty else { return 0 }
-        let totalScore = self.reduce(0.0) { $0 + $1.overallScore }
-        return totalScore / Double(self.count)
-    }
-}
+
 #Preview {
     NavigationStack {
         HomeView()
