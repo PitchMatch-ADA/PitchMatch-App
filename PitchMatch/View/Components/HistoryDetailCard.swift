@@ -12,6 +12,7 @@ struct HistoryDetailCard: View {
     @State var song: Song //TODO: nnti ganti History just wanna test some things
     var color: Color?
     var proxy: GeometryProxy
+    let onClickButton: () -> Void
     var body: some View {
         
             HStack(){
@@ -31,9 +32,10 @@ struct HistoryDetailCard: View {
                     Double(truncating: ratio as NSNumber)
                 }, powerRatios: song.powerRatios.map{ ratio in
                     Double(truncating: ratio as NSNumber)
-                }, color: color ?? Color.yellowMain, proxy: proxy, height: 25)
+                }, color: color ?? Color.yellowMain, proxy: proxy, height: 25
+                ,isLoading: false)
                 Button{
-                    
+                    onClickButton()
                 } label: {
                     CircleNav(iconName: "play.fill", circleSize: 40, iconColor: .white, iconSize: 20, backgroundColor: color ?? Color.yellowMain)
                 }
@@ -50,6 +52,8 @@ struct HistoryDetailCard: View {
         HistoryDetailCard(
             song: Song.getSongs()[1],
             proxy: proxy
-        )
+        ){
+            
+        }
     }
 }

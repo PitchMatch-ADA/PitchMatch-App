@@ -23,17 +23,22 @@ struct HistoryDetailView: View {
                 Spacer()
                 TabView(selection: $selectedSong,
                         content:  {
-                    //                    ForEach(Singer.getSingers()) { singer in
-                    //                        ScrollView{
-                    //                            ForEach(singer.clips){ song in
-                    //                                HistoryDetailCard(song: song, proxy: proxy)
-                    //                            }
-                    //                        } //place holder
-                    //                    }
+//                                        ForEach(Singer.getSingers()) { singer in
+//                                            ScrollView{
+//                                                ForEach(singer.clips){ song in
+//                                                    HistoryDetailCard(song: song, proxy: proxy)
+//                                                }
+//                                            } //place holder
+//                                        }
                     ForEach(Array((singer?.clips ?? []) .enumerated()), id: \.offset){ index, song in
-                        VStack{
-                            Text("\(currentSong?.id ?? "")")
-                            Text("\(song.id)")
+                        ScrollView{
+                            ForEach(Array((singer?.clips ?? []) .enumerated()), id: \.offset){
+                                idx, sg in
+                                HistoryDetailCard(song: sg, proxy: proxy){
+                                        print("in")
+                                        playAudio(audioResourceId: sg.id, isLoop: false)
+                                }
+                            }
                         }
                     }
                     .padding()
@@ -43,12 +48,12 @@ struct HistoryDetailView: View {
                 .frame(height: 400)
                 .onAppear{
                     currentSong = singer?.clips[selectedSong]
-                    playAudio()
+                        playAudio(audioResourceId: currentSong?.id ?? "", isLoop: true)
                 }
                 .onChange(of: selectedSong) { index in
                     audioPlayer?.stop() //Stop music
                     currentSong = singer?.clips[selectedSong]
-                    playAudio()
+                    playAudio(audioResourceId: currentSong?.id ?? "", isLoop: true)
                 }
                 //TODO: Masih trial pake Song, jangan lupa ganti
                 .onDisappear{
@@ -70,9 +75,9 @@ struct HistoryDetailView: View {
         }
     }
     
-    func playAudio() {
+    func playAudio(audioResourceId: String, isLoop: Bool) {
         Task{
-            if let fileName = Bundle.main.path(forResource: currentSong?.id, ofType: "mp3") {
+            if let fileName = Bundle.main.path(forResource: audioResourceId, ofType: "mp3") {
                 audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
             }
             
@@ -81,6 +86,7 @@ struct HistoryDetailView: View {
             } catch(let error) {
                 print(error.localizedDescription)
             }
+            audioPlayer?.numberOfLoops = (isLoop) ? -1 : 0
             audioPlayer?.play()
         }
     }
