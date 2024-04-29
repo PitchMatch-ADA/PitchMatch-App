@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D0DAD862BDCE81400E4B26A /* HistoryDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DAD852BDCE81400E4B26A /* HistoryDetailCard.swift */; };
+		0DADC44A2BDF4BD400180230 /* confirm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DADC4482BDF4BD400180230 /* confirm.wav */; };
+		0DADC44B2BDF4BD400180230 /* swipe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DADC4492BDF4BD400180230 /* swipe.wav */; };
 		819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE2492BDB875800B082BF /* HistoryListView.swift */; };
 		819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */; };
 		819EE2532BDD511900B082BF /* CircleNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EE2522BDD511900B082BF /* CircleNav.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		0D0DAD852BDCE81400E4B26A /* HistoryDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailCard.swift; sourceTree = "<group>"; };
+		0DADC4482BDF4BD400180230 /* confirm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = confirm.wav; sourceTree = "<group>"; };
+		0DADC4492BDF4BD400180230 /* swipe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swipe.wav; sourceTree = "<group>"; };
 		819EE2492BDB875800B082BF /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		819EE24C2BDBA64D00B082BF /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		819EE2522BDD511900B082BF /* CircleNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleNav.swift; sourceTree = "<group>"; };
@@ -108,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DADC4472BDF4BBC00180230 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				0DADC4482BDF4BD400180230 /* confirm.wav */,
+				0DADC4492BDF4BD400180230 /* swipe.wav */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
 		819EE24B2BDBA63600B082BF /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +185,7 @@
 		C7ABA64A2BDA53C900AFC4E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0DADC4472BDF4BBC00180230 /* SFX */,
 				C7EBEE5B2BDEB83800FAB822 /* Instrument */,
 				C7ABA6792BDB3E2900AFC4E0 /* Song */,
 				C7ABA64D2BDA556000AFC4E0 /* Model */,
@@ -369,8 +383,10 @@
 				C7EBEE6A2BDEB84700FAB822 /* Tulus1000TahunIns.mp3 in Resources */,
 				C7EBEE672BDEB84700FAB822 /* APTemanPerjalananIns.mp3 in Resources */,
 				C7ABA6862BDB40DF00AFC4E0 /* APSudah.mp3 in Resources */,
+				0DADC44B2BDF4BD400180230 /* swipe.wav in Resources */,
 				C7ABA68B2BDB40DF00AFC4E0 /* TulusHatiHatiDiJalan.mp3 in Resources */,
 				C7EBEE662BDEB84700FAB822 /* RanDekatDiHatiIns.mp3 in Resources */,
+				0DADC44A2BDF4BD400180230 /* confirm.wav in Resources */,
 				C7EBEE6B2BDEB84700FAB822 /* RanSiLemahIns.mp3 in Resources */,
 				C7ABA6892BDB40DF00AFC4E0 /* APDiSenayan.mp3 in Resources */,
 				C7ABA6842BDB40DF00AFC4E0 /* APTemanPerjalanan.mp3 in Resources */,
@@ -540,7 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = 5SU889K9XY;
+				DEVELOPMENT_TEAM = PS54KA4A89;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -579,7 +595,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = 5SU889K9XY;
+				DEVELOPMENT_TEAM = PS54KA4A89;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
