@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFAudio
 import AVFoundation
+import SwiftData
 
 struct HomeView: View {
     @State private var singers: [Singer] = []
@@ -19,14 +20,35 @@ struct HomeView: View {
     @State var selectedSong: Int = 0
     var playerLooper: AVPlayerLooper?
     
-    @State private var histories: [History] = []
+    @Query private var histories: [History]
     
-    private var overallScore : Double {
-        histories.map{ history in history.overallScore
+    private var overallScore : [String: Double] {
+        var historyDictionary: [String: [Double]] = Dictionary(
+            uniqueKeysWithValues: singers.map { singer in
+                (singer.id, [])
+            }
+        )
+        
+        histories.forEach { history in
+            var lastHistory = historyDictionary[history.singerId]
+            
+            lastHistory?.append(history.overallScore)
+            
+            if let newOvScores = lastHistory {
+                historyDictionary.updateValue(newOvScores, forKey: history.singerId)
+            }
         }
-        .reduce(0,+)
-           
+        
+        return Dictionary(
+            uniqueKeysWithValues:
+                historyDictionary.map { key, value in 
+                    let ovScore = value.reduce(0, +) / Double(value.count)
+                    
+                    return (key, ovScore)
+                }
+        )
     }
+    
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
@@ -54,12 +76,12 @@ struct HomeView: View {
                             }
                             
                             VStack {
-                               
-
-                                CircularProgressBar(progress: overallScore, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
-                                .buttonStyle(.plain)
                                 
-                                .padding(.top,30)
+                                
+                                CircularProgressBar(progress: overallScore[singer.id] ?? 0.0, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
+                                    .buttonStyle(.plain)
+                                
+                                    .padding(.top,30)
                             }
                         }
                         
@@ -82,7 +104,7 @@ struct HomeView: View {
                             
                             CircleNav(iconName: "clock.arrow.circlepath", circleSize: 70, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 30)
                         }
-                      
+                        
                         Spacer()
                         NavigationLink{
                             
@@ -101,9 +123,9 @@ struct HomeView: View {
             }
             .background(
                 LinearGradient(gradient: Gradient(colors: [currentSinger?.getShadeColor() ?? .yellowTint4,
-                    currentSinger?.getTintColor() ?? .yellowShade4,
-                    currentSinger?.getShadeColor() ?? .yellowShade4]),
-                    startPoint: .top, endPoint: .bottom)
+                                                           currentSinger?.getTintColor() ?? .yellowShade4,
+                                                           currentSinger?.getShadeColor() ?? .yellowShade4]),
+                               startPoint: .top, endPoint: .bottom)
             )
             .onAppear {
                 if !haveAppeared {
@@ -113,8 +135,8 @@ struct HomeView: View {
                     
                     haveAppeared = true
                 }
-
-               
+                
+                
             }
             .onChange(of: selectedIndex) { index in
                 
@@ -153,7 +175,7 @@ struct HomeView: View {
                             try AVAudioSession.sharedInstance().setCategory(.playback)
                             audioPlayer?.prepareToPlay()
                             audioPlayer?.play()
-                           
+                            
                             while audioPlayer?.isPlaying ?? false {}
                         } catch {
                             print(error.localizedDescription)
