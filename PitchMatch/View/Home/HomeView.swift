@@ -207,7 +207,7 @@ struct HomeView: View {
             }
             
         }
-        .tint(currentSinger?.getShadeThreeColor() ?? .yellowShade3)
+        .tint(.bg)
         
     }
     

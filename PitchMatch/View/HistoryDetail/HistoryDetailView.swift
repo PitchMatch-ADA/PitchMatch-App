@@ -6,19 +6,33 @@
 //
 
 import SwiftUI
+import SwiftData
 import AVFAudio
 
 struct HistoryDetailView: View {
     @State var singer: Singer?
-    let recordings: [History] = [] //TODO: blom init
+    @Query var recordings: [History] //TODO: blom init
     @State var currentSong: Song? = nil
+    @EnvironmentObject private var voiceToTextParser: VoiceToTextParser
     @State var selectedSong: Int = 0
     @State private var audioPlayer: AVAudioPlayer? = nil
+    
+    private var overallScore: Double {
+        var score = 0.0
+        var count = 0.0
+        for history in recordings {
+            if history.singerId == singer?.id{
+                score = score + history.overallScore
+                count += 1
+            }
+        }
+        return count == 0 ? 0 : score / count
+    }
     
     var body: some View {
         GeometryReader { proxy in
             VStack{
-                CircularProgressBar(progress: 10, singer: singer ?? Singer.getSingers()[0], barColor: singer?.getShadeColor() ?? .yellowShade4)
+                CircularProgressBar(progress: overallScore, singer: singer ?? Singer.getSingers()[0], barColor: singer?.getShadeColor() ?? .yellowShade4)
                 //TODO: Slap algorithm for counting average score
                 Spacer()
                 TabView(selection: $selectedSong,
@@ -32,11 +46,31 @@ struct HistoryDetailView: View {
 //                                        }
                     ForEach(Array((singer?.clips ?? []) .enumerated()), id: \.offset){ index, song in
                         ScrollView{
-                            ForEach(Array((singer?.clips ?? []) .enumerated()), id: \.offset){
-                                idx, sg in
-                                HistoryDetailCard(song: sg, proxy: proxy){
-                                        print("in")
-                                        playAudio(audioResourceId: sg.id, isLoop: false)
+                            ForEach(Array((recordings) .enumerated()), id: \.offset){
+                                idx, record in
+                                    if record.songId == song.id{
+                                        HistoryDetailCard(record: record, song: song, proxy: proxy){
+                                            Task{
+                                                audioPlayer?.stop()
+                                                
+                                                let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                                                let audioFile = path.appendingPathComponent(
+                                                    record.id
+                                                )
+                                                
+                                                audioPlayer = try? AVAudioPlayer(
+                                                    contentsOf: audioFile
+                                                )
+                                                
+                                                do {
+                                                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                                                } catch(let error) {
+                                                    print(error.localizedDescription)
+                                                }
+                                                
+                                                audioPlayer?.play()
+                                            }
+                                    }
                                 }
                             }
                         }
@@ -90,6 +124,8 @@ struct HistoryDetailView: View {
             audioPlayer?.play()
         }
     }
+    
+    
 }
 
 #Preview {
