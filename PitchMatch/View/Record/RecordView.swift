@@ -293,6 +293,13 @@ struct RecordView: View {
                         print(error.localizedDescription)
                     }
                     
+                    audioPlayer?.setVolume(
+                        0.1,
+                        fadeDuration: TimeInterval(
+                            (clip?.second ?? 0) + 1
+                        )
+                    )
+                    
                     audioPlayer?.play()
                     
                     voiceToTextParser.startListening(languageCode: "id")
