@@ -200,6 +200,8 @@ struct RecordView: View {
             timer.upstream.connect().cancel()
             recordTimer.upstream.connect().cancel()
             voiceToTextParser.stopListening()
+            
+            audioPlayer = nil
         }
         .task {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -280,8 +282,22 @@ struct RecordView: View {
                     receiveRecordTimer = false
                     recordTimer.upstream.connect().cancel()
                     
+                    if let fileName = Bundle.main.path(forResource: clip?.instrument, ofType: "mp3") {
+                        audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileName))
+                    }
+                    
+                    do {
+                        try AVAudioSession.sharedInstance().setCategory(.playback)
+                    } catch(let error) {
+                        print(error.localizedDescription)
+                    }
+                    
+                    audioPlayer?.play()
+                    
                     voiceToTextParser.startListening(languageCode: "id")
                     isRecording = true
+                    
+                    isPlaying = true
                     
                     startTime = 3
                 }
