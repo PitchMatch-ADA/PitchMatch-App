@@ -19,7 +19,7 @@ struct HomeView: View {
     @State var selectedSong: Int = 0
     var playerLooper: AVPlayerLooper?
     
-    
+    @State private var histories: [History] = []
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
@@ -47,7 +47,9 @@ struct HomeView: View {
                             }
                             
                             VStack {
-                                CircularProgressBar(progress: 20, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
+                               
+
+                                CircularProgressBar(progress: CGFloat(histories.averageOverallScore), singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
                                 .buttonStyle(.plain)
                                 
                                 .padding(.top,30)
@@ -70,6 +72,7 @@ struct HomeView: View {
                         NavigationLink{
                             HistoryDetailView(singer: currentSinger)
                         }label: {
+                            
                             CircleNav(iconName: "clock.arrow.circlepath", circleSize: 70, iconColor: currentSinger?.getShadeColor() ?? .yellowShade4, iconSize: 30)
                         }
                       
@@ -143,20 +146,27 @@ struct HomeView: View {
                             try AVAudioSession.sharedInstance().setCategory(.playback)
                             audioPlayer?.prepareToPlay()
                             audioPlayer?.play()
-                            // Wait for the current song to finish playing before proceeding to the next one
+                           
                             while audioPlayer?.isPlaying ?? false {}
                         } catch {
                             print(error.localizedDescription)
                         }
                     }
                 }
-                // If all songs have been played, repeat the sequence
                 playAudio()
             }
         }
     }
+    
+    
 }
-
+extension Array where Element == History {
+    var averageOverallScore: Double {
+        guard !self.isEmpty else { return 0 }
+        let totalScore = self.reduce(0.0) { $0 + $1.overallScore }
+        return totalScore / Double(self.count)
+    }
+}
 #Preview {
     NavigationStack {
         HomeView()
