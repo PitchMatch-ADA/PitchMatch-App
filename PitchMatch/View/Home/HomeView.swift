@@ -40,7 +40,7 @@ struct HomeView: View {
                             }
                             
                             VStack {
-                                CircularProgressBar(progress: 0.4, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
+                                CircularProgressBar(progress: 20, singer: Singer(id: singer.id, imageName: singer.imageName, clips: singer.clips), barColor: currentSinger?.getShadeColor() ?? .yellowShade4)
                                 .buttonStyle(.plain)
                                 
                                 .padding(.top,30)

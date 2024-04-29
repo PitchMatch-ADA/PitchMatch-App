@@ -29,7 +29,7 @@ struct CircularProgressBar: View {
                    .overlay(
                     Circle()
                         .trim(from: 0.0, to: 0.7)
-                        .stroke(Color(.systemGray5),style: StrokeStyle(lineWidth: 25.0, lineCap: .round, dash: [0.1]))
+                        .stroke(Color(.white),style: StrokeStyle(lineWidth: 25.0, lineCap: .round, dash: [0.1]))
                         .frame(width: 278, height: 217, alignment: .center)
                         .rotationEffect(.init(degrees: 142))
                         .overlay(
