@@ -114,7 +114,7 @@ struct HistoryDetailView: View {
                 Button(action: {
                     dismiss()
                 }) {
-                    Label("", systemImage: "arrow.left.circle")
+                    Label("", systemImage: "arrow.left")
                 }
             }
         }
