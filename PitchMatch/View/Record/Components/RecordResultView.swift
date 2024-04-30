@@ -58,7 +58,7 @@ struct RecordResultView: View {
                     .frame(height: 24)
                 
                 CircleButton(
-                    iconName: "house.fill",
+                    iconName: "arrow.right",
                     onClick: onDismissClick,
                     logoColor: singer?.getPrimaryColor()
                 )
