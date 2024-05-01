@@ -80,7 +80,8 @@ struct RecordView: View {
                     color: singer?.getPrimaryColor() ?? .yellowMain,
                     proxy: proxy,
                     height: 256,
-                    isLoading: isLoading
+                    isLoading: isLoading,
+                    startingAt: clip?.startSingingAt ?? -1
                 )
                 
                 Text("\(currentTimeText) / \(clipTimeText)")
@@ -97,13 +98,13 @@ struct RecordView: View {
                             iconName: "arrow.circlepath",
                             onClick: {
                                 songPowerRatios = []
-                                timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
                                 receiveTime = 0
                                 currentSecond = 0
                                 isLoading = true
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                     isLoading = false
+                                    timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
                                     audioPlayer?.play()
                                     isPlaying = true
                                 }
@@ -408,12 +409,17 @@ struct RecordView: View {
     
     private func analyseLyricResult() -> Double {
         let lyric = voiceToTextParser.result.lowercased()
-        let result = LyricClassifier.predict(lyric: lyric)
-        let lyricResult = result * 100
         
-        print(lyric)
-        
-        return lyricResult
+        if lyric == "null" {
+            return 0
+        } else {
+            let result = LyricClassifier.predict(lyric: lyric)
+            let lyricResult = result * 100
+            
+            print(lyric)
+            
+            return lyricResult
+        }
     }
     
     private func analyseResult() -> Double {

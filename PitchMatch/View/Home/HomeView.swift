@@ -15,10 +15,10 @@ struct HomeView: View {
     @State private var currentSinger: Singer?
     @State private var selectedIndex: Int = 0
     @State private var haveAppeared: Bool = false
-    @State private var audioPlayer: AVAudioPlayer? = nil
     @State var currentSong: Song? = nil
     
     @Query private var histories: [History]
+    @EnvironmentObject private var audioHandler: AudioHandler
     
     private var overallScore : [String: Double] {
         var historyDictionary: [String: [Double]] = Dictionary(
@@ -134,67 +134,31 @@ struct HomeView: View {
                     haveAppeared = true
                 }
                 
-                if let fileName = Bundle.main.path(
-                    forResource: currentSinger?.clips.randomElement()?.id ?? "",
-                    ofType: "mp3"
-                ) {
-                    audioPlayer = try? AVAudioPlayer(
-                        contentsOf: URL(fileURLWithPath: fileName)
-                    )
-                    
-                    do {
-                        try AVAudioSession.sharedInstance().setCategory(.playback)
-                    } catch(let error) {
-                        print(error.localizedDescription)
-                    }
-                    
-                    audioPlayer?.play()
-                }
+                audioHandler.playAudio(
+                    fileName: currentSinger?.clips.randomElement()?.id ?? "",
+                    type: "mp3"
+                )
             }
             .onChange(of: selectedIndex) { index in
-                audioPlayer?.stop() //Stop music
+                audioHandler.myAudioPlayer.stop() //Stop music
                 currentSinger = singers.isEmpty ? nil : singers[selectedIndex]
                 
-                if let fileName = Bundle.main.path(
-                    forResource: currentSinger?.clips.randomElement()?.id ?? "",
-                    ofType: "mp3"
-                ) {
-                    audioPlayer = try? AVAudioPlayer(
-                        contentsOf: URL(fileURLWithPath: fileName)
-                    )
-                    
-                    do {
-                        try AVAudioSession.sharedInstance().setCategory(.playback)
-                    } catch(let error) {
-                        print(error.localizedDescription)
-                    }
-                    
-                    audioPlayer?.play()
-                }
+                audioHandler.playAudio(
+                    fileName: currentSinger?.clips.randomElement()?.id ?? "",
+                    type: "mp3"
+                )
             }
-            .onChange(of: audioPlayer?.isPlaying) { isPlaying in
-                if isPlaying == false {
-                    if let fileName = Bundle.main.path(
-                        forResource: currentSinger?.clips.randomElement()?.id ?? "",
-                        ofType: "mp3"
-                    ) {
-                        audioPlayer = try? AVAudioPlayer(
-                            contentsOf: URL(fileURLWithPath: fileName)
-                        )
-                        
-                        do {
-                            try AVAudioSession.sharedInstance().setCategory(.playback)
-                        } catch(let error) {
-                            print(error.localizedDescription)
-                        }
-                        
-                        audioPlayer?.play()
-                    }
+            .onChange(of: audioHandler.isPlaying) { isPlaying in
+                print(isPlaying)
+                if !isPlaying {
+                    audioHandler.playAudio(
+                        fileName: currentSinger?.clips.randomElement()?.id ?? "",
+                        type: "mp3"
+                    )
                 }
             }
             .onDisappear(){
-                audioPlayer?.stop() //Stop music
-                audioPlayer = nil
+                audioHandler.myAudioPlayer.stop() //Stop music
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -221,4 +185,5 @@ struct HomeView: View {
         HomeView()
     }
     .modelContainer(container)
+    .environmentObject(AudioHandler())
 }

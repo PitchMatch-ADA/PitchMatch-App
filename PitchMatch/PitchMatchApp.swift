@@ -11,11 +11,14 @@ import SwiftData
 @main
 struct PitchMatchApp: App {
     @StateObject private var voiceToTextParser = VoiceToTextParser()
+    @StateObject private var audioHandler = AudioHandler()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(voiceToTextParser)
+                .environmentObject(audioHandler)
+            
 //                .task {
 //                    guard let path = Bundle.main.path(forResource: "TulusTemanHidup", ofType:"mp3") else {
 //                        fatalError("Couldn't find the file path")

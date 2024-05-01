@@ -51,6 +51,8 @@
 		C7D525142BDC22AC002CAB8C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525132BDC22AC002CAB8C /* Song.swift */; };
 		C7D525162BDC2828002CAB8C /* SongExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525152BDC2828002CAB8C /* SongExtension.swift */; };
 		C7D525182BDC2A1A002CAB8C /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D525172BDC2A1A002CAB8C /* AudioContext.swift */; };
+		C7EA40E32BE2A5B4007EF828 /* AudioHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA40E22BE2A5B4007EF828 /* AudioHandler.swift */; };
+		C7EA40E52BE2AC26007EF828 /* FinalLyricClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7EA40E42BE2AC26007EF828 /* FinalLyricClassifier.mlmodel */; };
 		C7EBEE702BDF434F00FAB822 /* LyricClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EBEE6F2BDF434F00FAB822 /* LyricClassifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		C7D525132BDC22AC002CAB8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		C7D525152BDC2828002CAB8C /* SongExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongExtension.swift; sourceTree = "<group>"; };
 		C7D525172BDC2A1A002CAB8C /* AudioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContext.swift; sourceTree = "<group>"; };
+		C7EA40E22BE2A5B4007EF828 /* AudioHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHandler.swift; sourceTree = "<group>"; };
+		C7EA40E42BE2AC26007EF828 /* FinalLyricClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FinalLyricClassifier.mlmodel; sourceTree = "<group>"; };
 		C7EBEE6F2BDF434F00FAB822 /* LyricClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricClassifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +204,7 @@
 		C7ABA64D2BDA556000AFC4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7EA40E42BE2AC26007EF828 /* FinalLyricClassifier.mlmodel */,
 				C729933F2BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel */,
 				C7ABA68C2BDB412A00AFC4E0 /* LyricClassifierModel.mlmodel */,
 			);
@@ -293,6 +298,7 @@
 				C7D5250D2BDC1704002CAB8C /* MicrophonePowerObserver.swift */,
 				C7D5250F2BDC18C5002CAB8C /* VoiceToTextParser.swift */,
 				C7D525172BDC2A1A002CAB8C /* AudioContext.swift */,
+				C7EA40E22BE2A5B4007EF828 /* AudioHandler.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				C7ABA6982BDB7A8000AFC4E0 /* History.swift in Sources */,
 				C7D525162BDC2828002CAB8C /* SongExtension.swift in Sources */,
 				C71054502BD7C7E600654867 /* ContentView.swift in Sources */,
+				C7EA40E32BE2A5B4007EF828 /* AudioHandler.swift in Sources */,
 				C7D5250B2BDC1255002CAB8C /* CircleButton.swift in Sources */,
 				C7D525062BDC0A11002CAB8C /* RecordView.swift in Sources */,
 				C7D525092BDC0A21002CAB8C /* HistoryDetailView.swift in Sources */,
@@ -436,6 +443,7 @@
 				C7D525142BDC22AC002CAB8C /* Song.swift in Sources */,
 				C7D525102BDC18C5002CAB8C /* VoiceToTextParser.swift in Sources */,
 				C72993402BDFFAC000BA1BBE /* LowercaseLyricClassifier.mlmodel in Sources */,
+				C7EA40E52BE2AC26007EF828 /* FinalLyricClassifier.mlmodel in Sources */,
 				819EE24A2BDB875800B082BF /* HistoryListView.swift in Sources */,
 				819EE2532BDD511900B082BF /* CircleNav.swift in Sources */,
 				819EE24D2BDBA64D00B082BF /* CircularProgressBar.swift in Sources */,
@@ -572,7 +580,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = 5SU889K9XY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -611,7 +619,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PitchMatch/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = 5SU889K9XY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

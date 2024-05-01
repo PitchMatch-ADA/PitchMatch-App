@@ -36,6 +36,8 @@ struct RecorderDisplay: View {
     var isPlaying: Bool = false
     var onButtonClick: () -> Void = {  }
     
+    var startingAt: Int = -1
+    
     var body: some View {
         HStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -59,7 +61,9 @@ struct RecorderDisplay: View {
                                     width: barWidth,
                                     height: (center - (center - center * ratio)) * 2.0
                                 )
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(
+                                    ((i + 1) == startingAt) ? .green : .gray
+                                )
                         }
                         .scrollTargetLayout()
                         

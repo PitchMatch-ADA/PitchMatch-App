@@ -88,14 +88,18 @@ class VoiceToTextParser: ObservableObject {
             ) { [weak self] (result, error) in
                 guard let result = result else {
                     self?.updateState(
+                        result: "null",
                         error: error?.localizedDescription
                     )
+                    
                     return
                 }
                 
                 if result.isFinal {
+                    let finalResult = result.bestTranscription.formattedString
+                    
                     self?.updateState(
-                        result: result.bestTranscription.formattedString
+                        result: finalResult.isEmpty ? "null" : finalResult
                     )
                 }
             }
