@@ -52,10 +52,10 @@ class MicrophonePowerObserver: ObservableObject {
                 
                 let powerOffset = recorder.averagePower(forChannel: 0)
                 
-                if powerOffset < -50 {
+                if powerOffset < -40 {
                     self?.micPowerRatio = 0.0
                 } else {
-                    let normalizeOffset = CGFloat(50 + powerOffset) / 50
+                    let normalizeOffset = CGFloat(40 + powerOffset) / 40
                     self?.micPowerRatio = normalizeOffset
                 }
             }
