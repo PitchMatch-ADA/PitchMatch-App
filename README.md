@@ -4,6 +4,9 @@ PitchMatch is an app that will help you to improve your singing skill in a fun w
 <br></br>
 Let's Sing with PitchMatch 🎤
 
+## Join the TestFlight
+https://testflight.apple.com/join/hXoNS9l0
+
 ## Screenshoots
 ![PMScreenshots](https://github.com/PitchMatch-ADA/PitchMatch-App/assets/69592810/29bc476a-7d71-4988-9eea-f8b427b97673)
 
